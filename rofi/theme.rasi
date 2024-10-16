@@ -1,0 +1,92 @@
+@import "wpg.rasi"
+
+* {
+    font:   "mono 11";
+
+    background-color:   @bg;
+    text-color:         @fg0;
+
+}
+
+window {
+    location:       center;
+    width:          800;
+    height:         600;
+    border-radius:  20px;
+    border-color:   @fg0;
+    border:         3px;
+    background-color:   @bg;
+}
+
+mainbox {
+    padding:    30px 40px;
+}
+
+inputbar {
+    background-color:   @bg;
+//    border-color:       @fg0;
+//    border:             3px;
+//    border-radius:      20px;
+
+    padding:    8px 16px;
+    spacing:    8px;
+    children:   [ prompt, entry ];
+}
+
+prompt {
+    text-color: @fg1;
+}
+
+entry {
+    text-color:  @fg1;
+}
+
+message {
+    margin:             12px 0 0;
+    border-radius:      16px;
+    border-color:       @bg;
+    background-color:   @bg;
+}
+
+textbox {
+    padding:    8px 24px;
+}
+
+listview {
+
+    margin:     12px 0 0;
+    lines:      8;
+    columns:    1;
+
+    fixed-height: false;
+}
+
+element {
+    padding:        8px 16px;
+    spacing:        8px;
+    border-radius:  16px;
+}
+
+element normal active {
+    text-color: @fg0;
+}
+
+element alternate active {
+    text-color: @fg0;
+}
+
+element selected normal, element selected active {
+    text-color:    @fg1;
+    border:        0 0 0 3;
+    border-radius: 0;
+    border-color:  @fg1;
+}
+
+element-icon {
+    size:           1em;
+    vertical-align: 0.5;
+}
+
+element-text {
+    text-color: inherit;
+}

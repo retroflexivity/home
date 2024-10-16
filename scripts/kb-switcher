@@ -1,0 +1,53 @@
+#!/usr/bin/zsh
+
+DEVICE="keyd-virtual-keyboard"
+
+# get layout names in specific order
+get_lo_names () {
+	local ids=( "$@" )
+	hlos=( ${(s[,])$(hyprctl getoption input:kb_layout | head -1 | cut -d ' ' -f 2-)} )
+	lo_names=()
+
+	for id in "${ids[@]}"; do
+		lo_names+=( "${hlos[$((id + 1))]}" )
+	done
+}
+
+# get layouts from hyprland if not already
+if [ ! -f /tmp/layouts ] || [[ $1 == "sync" ]]; then
+	hlos=( ${(s[,])$(hyprctl getoption input:kb_layout | head -1 | cut -d ' ' -f 2-)} )
+	los=( $(seq 0 $((${#hlos} - 1))) )
+	echo "$los" > /tmp/layouts
+fi
+
+# layout order
+# los[1] is the current layout, subsequent are chronologically ordered
+los=( "${(s[ ])$(</tmp/layouts)}" )
+
+if [[ $1 == "cycle" ]]; then
+	# if we just started cycling, the current-layout-index file does not exist
+	if [[ -f /tmp/cur_layout ]]; then
+		cur_lo=$(($(</tmp/cur_layout) + 1))
+	else
+		# in that case, switch to the most recent layout
+		cur_lo=2
+	fi
+	# loop
+	if (( cur_lo > ${#los} )); then
+		cur_lo=1
+	fi
+
+	# to continue cycling
+	echo $cur_lo > /tmp/cur_layout
+
+	get_lo_names $los
+	notify-send -h string:x-dunst-stack-tag:kbsw "$(echo "${lo_names:0:$(($cur_lo - 1))} [${lo_names[$cur_lo]}] ${lo_names:$cur_lo}" | xargs)"
+fi
+
+if [[ $1 == "set" ]]; then
+	cur_lo=$(</tmp/cur_layout)
+	echo setting ${los[$cur_lo]}
+	hyprctl switchxkblayout $DEVICE ${los[$cur_lo]}
+	echo "${los[$cur_lo]} ${los:0:$(($cur_lo - 1))} ${los:$cur_lo}" | xargs > /tmp/layouts
+	rm /tmp/cur_layout
+fi

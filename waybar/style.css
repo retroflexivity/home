@@ -1,0 +1,65 @@
+window#waybar {
+    background-color: #f6f6f6;
+    border: 3px solid #2b2b2b;
+    border-radius: 0px;
+}
+
+* {
+    color: #2b2b2b;
+}
+
+label.module, #window {
+    padding: 0px 6px;
+}
+
+#filler,
+#fillerround,
+#hardware,
+#datetime,
+#customtext,
+#curwindow,
+#connections,
+#volume,
+#power,
+#kblayout,
+#workspaces {
+    font-size: 14px;
+    color: #2b2b2b;
+    border: 3px solid #2b2b2b;
+    margin: 6px;
+    padding: 0px 7px;
+}    
+
+#filler, #fillerround {
+    margin-right: 0px;
+}
+
+#fillerround {
+    border-radius: 2em;
+}
+
+#datetime, #kblayout, #volume {
+    border-radius: 30em;
+}
+
+#workspaces {
+    border: 0px;
+    padding: 0px
+}
+
+#workspaces button {
+    border: 3px solid #2b2b2b;
+    margin: 0px 3px
+}
+
+#workspaces button.inactive {
+    border-radius: 0em;
+}
+
+#workspaces button.active {
+    border-radius: 10em;
+}
+
+#battery.discharging.critical, #cpu.critical, #memory.critical, #battery.critical, #battery.full {
+    color: #ba0b0b
+}

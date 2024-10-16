@@ -1,0 +1,5 @@
+[Unit]
+Description="rclone bisync google drive"
+
+[Service]
+ExecStart=/home/retroflexivity/bin/rclone-gdrive

@@ -1,0 +1,12 @@
+#!/usr/bin/zsh
+
+addr="192.168.1.${1:-70}"
+echo $addr
+
+declare -a dirs=("Articles" "Books" "Misc reading")
+
+for d in "${dirs[@]}"
+do
+    echo cloning "$d"
+    rclone sync $d koob:/mnt/onboard/$d --sftp-host $addr --verbose
+done

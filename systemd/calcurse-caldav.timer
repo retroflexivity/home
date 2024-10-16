@@ -1,0 +1,10 @@
+[Unit]
+Description="Run calcurse-caldav.service on boot and every 10 mins relative to activation time"
+
+[Timer]
+OnBootSec=40sec
+OnUnitActiveSec=10min
+Unit=calcurse-caldav.service
+
+[Install]
+WantedBy=multi-user.target
