@@ -1,9 +1,18 @@
-#!/usr/bin/env bash
+#!/usr/bin/zsh
 
-function handle {
-  if [[ ${1:0:12} == "activewindow" ]]; then
-    echo $1
-  fi
+function handle-popup {
+    if [[ $1 == "openwindow"*",popup-"* ]]; then
+	echo $1
+        focused=${1##*>}
+        focused=${focused%%,*}
+    elif [[ -n $focused ]] && [[ ${1:0:14} == "activewindowv2" ]] ; then
+	echo $1
+	if [[ ! $1 == *"$focused" ]] ; then
+            hyprctl dispatch closewindow "popup*"
+	    focused=''
+	fi
+    fi
 }
 
-socat - "UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock" | while read -r line; do handle "$line"; done
+focused=''
+socat -u "UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock" - | while read -r line; do handle-popup "$line"; done
