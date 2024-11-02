@@ -29,9 +29,9 @@ while true; do
 		if [[ $profile == $LOW_BAT_PROFILE ]]; then
 			notify-send -h string:dunst-stack-tag:batt "low battery" "the battery is $(cat $BAT_CAP)%" --urgency critical
 		fi
-		if [[ $profile == $AC_PROFILE ]]; then
-			notify-send -h string:dunst-stack-tag:batt "charging" "the battery is $(cat $BAT_CAP)% and charging" --urgency critical -t 2000 
-		fi
+#		if [[ $profile == $AC_PROFILE ]]; then
+#			notify-send -h string:dunst-stack-tag:batt "charging" "the battery is $(cat $BAT_CAP)% and charging" --urgency critical -t 2000 
+#		fi
 		echo setting power profile to $profile
 		powerprofilesctl set $profile
 	fi

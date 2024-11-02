@@ -154,8 +154,8 @@ configuration {
       sorting-method:    "name";
   }
   recursivefilebrowser {
-      directory: "/home/retroflexivity";
+      directory: "/home/ark";
   }
 }
 
-@theme "/home/retroflexivity/.config/rofi/themes/concrete.rasi"
+@theme "/home/ark/.config/rofi/themes/concrete.rasi"

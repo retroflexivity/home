@@ -4,8 +4,8 @@ Documentation=https://docs.docker.com/go/rootless/
 Requires=dbus.socket
 
 [Service]
-Environment=PATH=/home/retroflexivity/bin:/sbin:/usr/sbin:/home/retroflexivity/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/var/lib/flatpak/exports/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/var/lib/snapd/snap/bin:/home/retroflexivity/bin:/home/retroflexivity/bin/android-sdk/platform-tools:/home/retroflexivity/bin/android-sdk/cmdline-tools/latest/bin:/home/retroflexivity/bin:/home/retroflexivity/bin/android-sdk/platform-tools:/home/retroflexivity/bin/android-sdk/cmdline-tools/latest/bin
-ExecStart=/home/retroflexivity/bin/dockerd-rootless.sh 
+Environment=PATH=/home/ark/bin:/sbin:/usr/sbin:/home/ark/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/var/lib/flatpak/exports/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/var/lib/snapd/snap/bin:/home/ark/bin:/home/ark/bin/android-sdk/platform-tools:/home/ark/bin/android-sdk/cmdline-tools/latest/bin:/home/ark/bin:/home/ark/bin/android-sdk/platform-tools:/home/ark/bin/android-sdk/cmdline-tools/latest/bin
+ExecStart=/home/ark/bin/dockerd-rootless.sh 
 ExecReload=/bin/kill -s HUP $MAINPID
 TimeoutSec=0
 RestartSec=2

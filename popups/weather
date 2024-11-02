@@ -2,9 +2,13 @@
 
 if [[ $1 == "s" ]]; then
 	WTTR=$(curl -s "wttr.in/@1.1.1.1?format=%t,%C")
-	TEMP=${WTTR%,*}
-	COND=$(echo ${WTTR#*,} | tr '[:upper:]' '[:lower:]' | xargs)
-	echo "$TEMP and $COND"
+  if [[ $WTTR == "Sorry*" ]]; then
+  	TEMP=${WTTR%,*}
+	  COND=$(echo ${WTTR#*,} | tr '[:upper:]' '[:lower:]' | xargs)
+	  echo "$TEMP and $COND"
+  else
+    echo "what is this place?"
+  fi
 else
 	kitty --class popup-weather sh -c 'curl -s "wttr.in/?T" | less'
 fi
