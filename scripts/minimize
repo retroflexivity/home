@@ -1,0 +1,25 @@
+#!/usr/bin/zsh
+wsps=$(hyprctl monitors | grep workspace)
+active_ws=${wsps#*\(}
+active_ws=${active_ws%%\)*}
+
+if [ $1 = "toggle" ]; then
+  hyprctl dispatch togglespecialworkspace min$active_ws
+
+elif [ $1 = "restore" ]; then
+  # open min workspace if not yet
+  special_ws=${wsps##*\(}
+  special_ws=${special_ws%\)*}
+  [[ $special_ws == special:min* ]] || hyprctl dispatch togglespecialworkspace min$active_ws
+
+  hyprctl dispatch movetoworkspacesilent +0
+
+  # close min workspace if not already
+  wsps=$(hyprctl monitors | grep special)
+  special_ws=${wsps##*\(}
+  special_ws=${special_ws%\)*}
+  [[ $special_ws == special:min* ]] && hyprctl dispatch togglespecialworkspace min$active_ws
+
+elif [ $1 = "minimize" ]; then
+  hyprctl dispatch movetoworkspacesilent special:min$active_ws
+fi

@@ -37,6 +37,8 @@ if [[ $1 == "cycle" ]]; then
 		cur_lo=1
 	fi
 
+	hyprctl switchxkblayout $DEVICE ${los[$cur_lo]}
+
 	# to continue cycling
 	echo $cur_lo > /tmp/cur_layout
 
