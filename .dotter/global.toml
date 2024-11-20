@@ -7,6 +7,8 @@
 "kitty" = "~/.config/kitty"
 "rofi/config.rasi" = "~/.config/rofi/config.rasi"
 "rofi/theme.rasi" = "~/.config/rofi/themes/concrete.rasi"
+"rofimoji.rc" = "~/.config/rofimoji.rc"
+"rofi-rbw.rc" = "~/.config/rofi-rbw.rc"
 "waybar/config.jsonc" = "~/.config/waybar/config.jsonc"
 "waybar/style.css" = "~/.config/waybar/style.css"
 "systemd" = "~/.config/systemd/user"
