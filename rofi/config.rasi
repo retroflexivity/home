@@ -1,5 +1,5 @@
 configuration {
-	modes: "window,drun,run,ssh,recursivebrowser,combi";
+	modes: "combi";
 	font: "sans 12";
 /*	location: 0;*/
 /*	yoffset: 0;*/
@@ -32,7 +32,7 @@ configuration {
 /*	auto-select: false;*/
 /*	parse-hosts: false;*/
 /*	parse-known-hosts: true;*/
-	combi-modes: "run,drun,ssh,recursivebrowser,window";
+	combi-modes: "run,drun";
 /*	matching: "normal";*/
 /*	tokenize: true;*/
 /*	m: "-5";*/
