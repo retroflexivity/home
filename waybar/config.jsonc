@@ -87,7 +87,7 @@
 		"exec": "weather s",
 		"interval": "600",
 		"on-click": "weather",
-		"exec-one-event": "true"
+		"exec-on-event": "true"
 	},
 	"hyprland/workspaces": {
 		"disable-scroll-wraparound": false,
