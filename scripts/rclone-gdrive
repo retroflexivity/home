@@ -5,6 +5,6 @@ declare -a dirs=("Articles" "Documents")
 for d in "${dirs[@]}"
 do
 	echo cloning "$d"
-	rclone bisync gdrive:/$d ~/$d --drive-export-formats url --drive-skip-shortcuts --drive-skip-dangling-shortcuts  --drive-acknowledge-abuse --syslog --verbose $1
+	rclone bisync gdrive:/$d ~/$d --drive-export-formats url --drive-skip-shortcuts --drive-skip-dangling-shortcuts  --drive-acknowledge-abuse --syslog --verbose $@
 	journalctl -n 10 | grep Bisync | tail -2
 done

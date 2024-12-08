@@ -15,6 +15,8 @@
 "v2raya.json" = "~/.config/v2raya/current-config.json"
 "scripts" = "~/bin"
 "popups" = "~/bin"
+"keyd.conf" = "/etc/keyd/keyd.conf"
+"logind.conf" = "etc/systemd/logind.conf"
 
 [default.variables]
 

@@ -277,21 +277,21 @@
 
 
 [urgency_low]
-    background = "#fafafa"
+    background = "#f7f7f7"
     foreground = "#2b2b2b"
-    timeout = 10
+    timeout = 3
     skip_display = yes
     #default_icon = /path/to/icon
 
 [urgency_normal]
-    background = "#fafafa"
+    background = "#f7f7f7"
     foreground = "#2b2b2b"
-    timeout = 10
+    timeout = 5
     override_pause_level = 30
     #default_icon = /path/to/icon
 
 [urgency_critical]
-    background = "#fafafa"
+    background = "#f7f7f7"
     foreground = "#2b2b2b"
     frame_color = "#bd4e46"
     override_pause_level = 60

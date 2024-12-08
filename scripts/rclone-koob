@@ -8,5 +8,5 @@ declare -a dirs=("Articles" "Books" "Misc reading")
 for d in "${dirs[@]}"
 do
     echo cloning "$d"
-    rclone sync $d koob:/mnt/onboard/$d --sftp-host $addr --verbose
+    rclone sync $d koob:/mnt/onboard/$d --sftp-host $addr --no-update-modtime --verbose
 done

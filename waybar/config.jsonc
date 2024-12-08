@@ -3,7 +3,7 @@
 		"group/filler",
 		"group/filler",
 		"group/fillerround",
-		"group/customtext",
+		"group/curweather",
 		"hyprland/workspaces",
 		"group/curwindow"
 	],
@@ -54,7 +54,7 @@
 	"group/volume": {
 		"orientation": "inherit",
 		"modules": [
-			"pulseaudio"
+			"wireplumber"
 		]
 	},
 
@@ -74,7 +74,7 @@
 		]
 	},
 	
-	"group/customtext": {
+	"group/curweather": {
 		"orientation": "inherit",
 		"modules": [
 			"custom/weather"
@@ -87,8 +87,10 @@
 		"exec": "weather s",
 		"interval": "600",
 		"on-click": "weather",
-		"exec-on-event": "true"
+		"exec-on-event": "true",
+    "signal": 7
 	},
+
 	"hyprland/workspaces": {
 		"disable-scroll-wraparound": false,
 		"smooth-scrolling-threshold": 4,
@@ -146,22 +148,9 @@
 		"on-click": "bt"
 	},
 
-	"pulseaudio": {
-		"format": "vol {volume}% (sp)",
-		"format-bluetooth": "vol {volume}% (bt)",
-		"format-muted": "muted",
-		"format-icons": {
-			"headphone": "",
-			"hands-free": "",
-			"headset": "",
-			"phone": "",
-			"portable": "",
-			"car": "",
-			"default": ["", ""]
-		},
-		"scroll-step": 1,
-		
-		"on-click": "pavucontrol"
+	"wireplumber": {
+		"format": "vol {volume}% ({node_name})",
+		"format-muted": "muted"
 	},
 
 	"battery": {
