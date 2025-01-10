@@ -1,0 +1,14 @@
+#compdef rclone-koob
+
+_rclone-koob () {
+  local history_file="$HOME/.koob_ips"
+    local suggestions=()
+
+    # Check if the history file exists and read the suggestions
+    if [[ -f "$history_file" ]]; then
+        suggestions=($(cat "$history_file" | sort -u))
+    fi
+
+    # Provide suggestions as completion options
+    _arguments '*:string:(${(u)suggestions[@]})'
+}

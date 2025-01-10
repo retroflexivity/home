@@ -1,12 +1,29 @@
 #!/usr/bin/zsh
 
-addr="192.168.1.${1:-70}"
-echo $addr
+HISTORY_FILE="$HOME/.koob_ips"
+
+save_addr() {
+    local input="$1"
+
+    # Save the string to the history file if not already present
+    if ! grep -Fxq "$input" "$HISTORY_FILE"; then
+        echo "$input" >> "$HISTORY_FILE"
+    fi
+}
+
+if [[ -z "$1" ]]; then
+    echo "no address passed"
+    exit 1
+fi
+
+# Call the function with the input string
+save_addr "$1"
+addr=$1
 
 declare -a dirs=("Articles" "Books" "Misc reading")
 
 for d in "${dirs[@]}"
 do
-    echo cloning "$d"
+    echo cloning "$d" to "$addr"
     rclone sync $d koob:/mnt/onboard/$d --sftp-host $addr --no-update-modtime --verbose
 done

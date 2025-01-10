@@ -15,6 +15,7 @@
 "v2raya.json" = "~/.config/v2raya/current-config.json"
 "scripts" = "~/bin"
 "popups" = "~/bin"
+"zsh-functions" = "~/.config/zsh-functions"
 "keyd.conf" = "/etc/keyd/keyd.conf"
 "logind.conf" = "etc/systemd/logind.conf"
 ".zshrc" = "~/.zshrc"
