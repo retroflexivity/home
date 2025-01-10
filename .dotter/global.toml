@@ -17,6 +17,7 @@
 "popups" = "~/bin"
 "keyd.conf" = "/etc/keyd/keyd.conf"
 "logind.conf" = "etc/systemd/logind.conf"
+".zshrc" = "~/.zshrc"
 
 [default.variables]
 
