@@ -25,5 +25,5 @@ declare -a dirs=("Articles" "Books" "Misc reading")
 for d in "${dirs[@]}"
 do
     echo cloning "$d" to "$addr"
-    rclone sync $d koob:/mnt/onboard/$d --sftp-host $addr --no-update-modtime --verbose
+    rclone sync $d koob:/mnt/onboard/$d --sftp-host $addr --exclude ".sdr/**" --no-update-modtime --verbose
 done
