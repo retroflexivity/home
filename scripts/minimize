@@ -12,7 +12,7 @@ elif [ $1 = "restore" ]; then
   special_ws=${special_ws%\)*}
   [[ $special_ws == special:min* ]] || hyprctl dispatch togglespecialworkspace min$active_ws
 
-  hyprctl dispatch movetoworkspacesilent +0
+  hyprctl dispatch movetoworkspace +0
 
   # close min workspace if not already
   wsps=$(hyprctl monitors | grep special)
