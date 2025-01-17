@@ -2,7 +2,7 @@
 Type=simple
 ExecStart=/home/ark/bin/popup-killer
 Restart=always
-RestartSec=3
+RestartSec=3s
 
 [Install]
 WantedBy=default.target
