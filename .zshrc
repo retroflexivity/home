@@ -1,4 +1,4 @@
-export PATH=$PATH:$HOME/bin:/usr/local/texlive/2024/bin/x86_64-linux
+export PATH=$PATH:$HOME/.local/bin:$HOME/bin:/usr/local/texlive/2024/bin/x86_64-linux:$HOME/.ghcup/bin:$HOME/.cabal/bin
 export ZSH="$HOME/.oh-my-zsh"
 export TERMINAL="/usr/bin/kitty"
 export FPATH=$FPATH:$HOME/.config/zsh-functions
