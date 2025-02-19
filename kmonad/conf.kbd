@@ -1,0 +1,67 @@
+;; CONFIG
+
+(defcfg
+  input  (device-file "/dev/input/by-path/platform-i8042-serio-0-event-kbd")
+  output (uinput-sink "kmonad"
+    "sleep 1 && setxkbmap -option compose:ralt")
+  cmp-seq ralt
+  cmp-seq-delay 5
+  ;;key-seq-delay 5 ;; 5ms delay between each outputted key event
+
+  fallthrough true
+  allow-cmd true
+  implicit-around around
+)
+
+
+;; SOURCE
+
+(defsrc
+  esc  back refresh f3 scale sysrq brightnessdown brightnessup mute volumedown volumeup sleep  
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  lmet a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lalt           spc            ralt rctl
+)
+
+
+;; ALIASES
+
+(defalias
+  tsf (tap-hold-next-release 300 t lsft)
+  sct (tap-hold-next-release 300 s lctl)
+  ral (tap-hold-next-release 300 r lalt)
+  ame (tap-hold-next-release 300 a lmet)
+                    
+  lsf (tap-hold-next-release 300 l lsft)
+  uct (tap-hold-next-release 300 u lctl)
+  yal (tap-hold-next-release 300 y lalt)
+  ;me (tap-hold-next-release 300 ; lmet)
+                   
+  _fn (tap-hold-next-release 300 spc (layer-toggle fn))
+
+  lmb (cmd-button "ydotool click 0xC0")
+  rmb (cmd-button "ydotool click 0xC1") 
+)
+
+
+;; LAYERS
+
+(deflayer colemak
+  esc  back refresh f3 scale sysrq brightnessdown brightnessup mute volumedown volumeup @lmb  
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    f    p    g    j    @lsf @uct @yal @;me [    ]    \
+  esc  @ame @ral @sct @tsf d    h    n    e    i    o    '    ret
+  lsft z    x    c    v    b    k    m    ,    .    /   rsft
+  lctl lalt           @_fn           ralt rctl
+)
+
+(deflayer fn
+  esc  XX   XX   XX   XX   XX   kbdillumdown kbdillumup XX   XX   XX @rmb
+  XX   f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  del
+  XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX
+  caps XX   XX   tab  ret  XX   lft  down up   rght XX   XX   XX
+  XX   XX   bspc XX   XX   XX   home pgdn pgup end  XX   XX
+  XX   XX             XX             XX   XX  
+)
