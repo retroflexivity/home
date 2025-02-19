@@ -1,6 +1,6 @@
 #!/usr/bin/zsh
 
-DEVICE="keyd-virtual-keyboard"
+DEVICE="main"
 
 # get layout names in specific order
 get_lo_names () {
