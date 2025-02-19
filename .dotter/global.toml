@@ -1,4 +1,5 @@
 [default.files]
+"nvim" = "~/.config/nvim"
 "clipse/config.json" = "~/.config/clipse/config.json"
 "clipse/custom_theme.json" = "~/.config/clipse/custom_theme.json"
 "bottom.toml" = "~/.config/bottom/bottom.toml"
@@ -17,6 +18,7 @@
 "popups" = "~/bin"
 "zsh-functions" = "~/.config/zsh-functions"
 "keyd.conf" = "/etc/keyd/keyd.conf"
+"kmonad" = "~/.config/kmonad"
 "logind.conf" = "etc/systemd/logind.conf"
 ".zshrc" = "~/.zshrc"
 
