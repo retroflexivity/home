@@ -99,9 +99,11 @@
 	},
 
 	"hyprland/window": {
-		"format": "you're at {class}",
+		"format": "you're at {}",
+    "max-length": 40,
 		"rewrite": {
-			".*TDesktop": "you're at telegram",
+      "(.*?)(( •| -| —|:).*)?": "$1",
+      "(.*?) at nvim (.*)": "$1 editing $2",
 			"you're at ": "nothing here"
 		}
 	},
@@ -110,7 +112,8 @@
 		"interval": 1,
 		"format": "{:%H:%M}",
 		"tooltip": true,
-			"tooltip-format": "{:%H:%M:%S}"
+			"tooltip-format": "{:%H:%M:%S}",
+    "on-click": "calendar"
 	},
 	
 	"clock#date": {
