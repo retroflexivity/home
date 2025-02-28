@@ -1,0 +1,124 @@
+theme = "term"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.statusline]
+left = ["file-name", "spinner"]
+center = ["read-only-indicator", "file-modification-indicator"]
+right = ["diagnostics", "selections", "position", "file-type"]
+separator = "│"
+mode.normal = "nor"
+mode.insert = "ins"
+mode.select = "sel"
+
+[keys.normal]
+D = "kill_to_line_end"
+
+n = "move_visual_line_down"
+e = "move_visual_line_up"
+i = "move_char_right"
+
+k = "move_next_word_end"
+K = "move_next_long_word_end"
+
+l = "insert_mode"
+L = "insert_at_line_end"
+
+A-e = "keep_selections"
+A-E = "remove_selections"
+
+A-k = "move_parent_node_end"
+
+j = "search_next"
+J = "search_prev"
+
+[keys.normal.z]
+n = "scroll_down"
+e = "scroll_up"
+j = "no_op"
+k = "no_op"
+
+[keys.normal.g]
+k = "goto_last_line"
+i = "goto_line_end"
+l = "goto_implementation"
+j = "goto_next_buffer"
+n = "move_line_down"
+e = "move_line_up"
+
+[keys.normal.C-w]
+n = "jump_view_down"
+C-n = "jump_view_down"
+e = "jump_view_up"
+C-e = "jump_view_up"
+i = "jump_view_right"
+C-i = "jump_view_right"
+N = "swap_view_down"
+E = "swap_view_up"
+I = "swap_view_right"
+j = "no_op"
+C-j = "no_op"
+k = "no_op"
+C-k = "no_op"
+l = "no_op"
+C-l = "no_op"
+J = "no_op"
+K = "no_op"
+L = "no_op"
+
+
+[keys.select]
+n = "extend_visual_line_down"
+e = "extend_visual_line_up"
+i = "extend_char_right"
+
+k = "extend_next_word_end"
+K = "extend_next_long_word_end"
+
+l = "insert_mode"
+L = "insert_at_line_end"
+
+A-e = "keep_selections"
+A-E = "remove_selections"
+
+A-k = "extend_parent_node_end"
+
+j = "extend_search_next"
+J = "extend_search_prev"
+
+[keys.select.z]
+n = "scroll_down"
+e = "scroll_up"
+j = "no_op"
+k = "no_op"
+
+[keys.select.g]
+k = "goto_last_line"
+i = "goto_line_end"
+l = "goto_implementation"
+j = "goto_next_buffer"
+n = "select_line_below"
+e = "select_line_above"
+
+[keys.select.C-w]
+n = "jump_view_down"
+C-n = "jump_view_down"
+e = "jump_view_up"
+C-e = "jump_view_up"
+i = "jump_view_right"
+C-i = "jump_view_right"
+N = "swap_view_down"
+E = "swap_view_up"
+I = "swap_view_right"
+j = "no_op"
+C-j = "no_op"
+k = "no_op"
+C-k = "no_op"
+l = "no_op"
+C-l = "no_op"
+J = "no_op"
+K = "no_op"
+L = "no_op"

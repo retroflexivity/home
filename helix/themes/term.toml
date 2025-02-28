@@ -1,0 +1,10 @@
+inherits = "base16_transparent"
+
+"ui.statusline" = "red"
+"ui.background" = "red"
+"ui.popup" = "red"
+
+"comment" = { modifiers = ["italic"], fg = "proper-gray" }
+
+[palette]
+proper-gray = "#909090"

@@ -1,0 +1,6 @@
+[language-server.hls]
+command = "haskell-language-server-wrapper"
+
+[[language]]
+name = "haskell"
+language-servers = ["hls"]

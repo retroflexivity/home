@@ -82,9 +82,9 @@ export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-export EDITOR='/usr/bin/nvim'
+export EDITOR='/usr/bin/helix'
 else
-export EDITOR='/usr/bin/nvim'
+export EDITOR='/usr/bin/helix'
 fi
 
 export ANDROID_HOME="$HOME/.android_sdk"
@@ -113,8 +113,8 @@ alias c="wl-copy"
 alias p="wl-paste"
 
 alias ts="trash-put"
-alias rm="echo 'warning! use ts for moving to trash'; false"
 
+alias hx="helix"
 alias cat="bat --theme=OneHalfLight"
 alias op="xdg-open"
 alias cal="calcurse"
