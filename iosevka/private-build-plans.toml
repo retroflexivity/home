@@ -1,0 +1,136 @@
+[buildPlans.IosevkaCurly]
+family = "Iosevka Curly"
+spacing = "normal"
+serifs = "slab"
+noCvSs = true
+exportGlyphNames = true
+
+[buildPlans.IosevkaCurly.variants.design]
+one = "base-long-top-serif"
+four = "closed-serifed"
+seven = "bend-serifed"
+eight = "crossing-asymmetric"
+zero = "oval-slashed"
+capital-a = "curly-base-serifed"
+capital-b = "more-asymmetric-bilateral-serifed"
+capital-d = "more-rounded-bilateral-serifed"
+capital-g = "toothless-rounded-serifed-hooked"
+capital-j = "descending-serifed-both-sides"
+capital-k = "curly-serifed"
+capital-q = "detached-tailed"
+capital-r = "curly-serifed"
+capital-v = "curly-serifed"
+capital-w = "curly-serifed"
+capital-z = "curly-serifed-with-horizontal-crossbar"
+a = "double-storey-tailed"
+b = "toothed-motion-serifed"
+d = "tailed-serifed"
+g = "double-storey-open"
+h = "tailed-motion-serifed"
+i = "serifed-asymmetric"
+k = "curly-top-left-and-bottom-right-serifed"
+l = "serifed-asymmetric"
+m = "tailed-top-left-serifed"
+n = "tailed-serifless"
+p = "eared-motion-serifed"
+q = "straight-motion-serifed"
+r = "top-serifed"
+u = "tailed-motion-serifed"
+v = "curly-serifed"
+w = "curly-serifed"
+z = "curly-serifed"
+eszet = "sulzbacher-tailed-serifless"
+lower-thorn = "motion-serifed"
+lower-alpha = "barred-tailed"
+capital-delta = "curly"
+capital-lambda = "curly-base-serifed"
+lower-lambda = "curly-tailed-turn"
+lower-mu = "tailed-motion-serifed"
+lower-xi = "rounded"
+lower-chi = "semi-chancery-curly-serifed"
+cyrl-a = "double-storey-tailed"
+cyrl-ve = "standard-unilateral-serifed"
+cyrl-capital-zhe = "curly"
+cyrl-zhe = "curly"
+cyrl-capital-ka = "curly-serifed"
+cyrl-ka = "curly-top-left-and-bottom-right-serifed"
+cyrl-er = "eared-motion-serifed"
+cyrl-capital-u = "curly-turn-serifed"
+cyrl-u = "curly-turn-serifed"
+cyrl-ef = "top-serifed"
+cyrl-capital-ya = "curly-serifed"
+cyrl-ya = "curly-serifed"
+asterisk = "penta-low"
+underscore = "above-baseline"
+number-sign = "slanted"
+ampersand = "lower-open"
+at = "fourfold"
+dollar = "open"
+cent = "open"
+percent = "rings-continuous-slash-also-connected"
+partial-derivative = "straight-bar"
+micro-sign = "toothed-motion-serifed"
+lig-equal-chain = "without-notch"
+lig-hyphen-chain = "without-notch"
+lig-single-arrow-bar = "without-notch"
+
+
+[buildPlans.IosevkaMinimal]
+family = "Iosevka Minimal"
+spacing = "normal"
+serifs = "sans"
+noCvSs = true
+exportGlyphNames = true
+
+[buildPlans.IosevkaMinimal.variants.design]
+capital-b = "more-asymmetric-serifless"
+capital-d = "more-rounded-serifless"
+capital-g = "toothless-rounded-serifless-hooked"
+capital-j = "descending-serifed"
+capital-k = "symmetric-touching-serifless"
+capital-q = "detached-bend-tailed"
+capital-z = "straight-serifless-with-horizontal-crossbar"
+f = "tailed"
+g = "double-storey-open"
+i = "serifed-asymmetric"
+k = "symmetric-touching-serifless"
+l = "serifed-asymmetric"
+lower-alpha = "barred"
+lower-gamma = "straight"
+cyrl-capital-zhe = "symmetric-touching"
+cyrl-zhe = "symmetric-touching"
+cyrl-capital-ka = "symmetric-touching-serifless"
+cyrl-ka = "symmetric-touching-serifless"
+brace = "straight"
+guillemet = "straight"
+ampersand = "upper-open"
+at = "fourfold"
+dollar = "open"
+cent = "open"
+percent = "rings-continuous-slash"
+lig-ltgteq = "slanted"
+lig-equal-chain = "without-notch"
+lig-hyphen-chain = "without-notch"
+
+  [buildPlans.IosevkaMinimal.ligations]
+  inherits = "haskell"
+
+[buildPlans.IosevkaMinimal.weights.ExtraLight]
+shape = 200
+menu = 200
+css = 200
+
+[buildPlans.IosevkaMinimal.weights.Regular]
+shape = 400
+menu = 400
+css = 400
+
+[buildPlans.IosevkaMinimal.weights.SemiBold]
+shape = 600
+menu = 600
+css = 600
+
+[buildPlans.IosevkaMinimal.widths.Normal]
+shape = 600
+menu = 5
+css = "normal"
