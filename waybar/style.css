@@ -14,6 +14,7 @@ label.module, #window {
 
 #filler,
 #fillerround,
+#hlsubmap,
 #hardware,
 #datetime,
 #curweather,
@@ -30,7 +31,7 @@ label.module, #window {
     padding: 0px 7px;
 }    
 
-#filler, #fillerround {
+#filler, #fillerround, #hlsubmap {
     margin-right: 0px;
 }
 

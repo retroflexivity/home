@@ -1,6 +1,6 @@
 {
 	"modules-left": [
-		"group/filler",
+		"group/hlsubmap",
 		"group/filler",
 		"group/fillerround",
 		"group/curweather",
@@ -19,22 +19,28 @@
 	],
 
 	// Groups
-
-	"group/connections": {
+	
+	"group/hlsubmap": {
 		"orientation": "inherit",
 		"modules": [
-			"bluetooth",
-			"network"
+			"hyprland/submap"
 		]
 	},
 
-	"group/kblayout": {
+	"group/curweather": {
 		"orientation": "inherit",
 		"modules": [
-			"hyprland/language"
+			"custom/weather"
 		]
 	},
 
+	"group/curwindow": {
+		"orientation": "inherit",
+		"modules": [
+			"hyprland/window"
+		]
+	},
+	
 	"group/datetime": {
 		"orientation": "inherit",
 		"modules": [
@@ -43,11 +49,18 @@
 		]
 	},
 	
-	"group/power": {
+	"group/kblayout": {
 		"orientation": "inherit",
 		"modules": [
-			"battery",
-			"power-profiles-daemon"
+			"hyprland/language"
+		]
+	},
+
+	"group/connections": {
+		"orientation": "inherit",
+		"modules": [
+			"bluetooth",
+			"network"
 		]
 	},
 
@@ -58,26 +71,20 @@
 		]
 	},
 
+	"group/power": {
+		"orientation": "inherit",
+		"modules": [
+			"battery",
+			"power-profiles-daemon"
+		]
+	},
+
 	"group/hardware": {
 		"orientation": "inherit",
 		"modules": [
 			"cpu",
 			"memory",
 			"temperature"
-		]
-	},
-	
-	"group/curwindow": {
-		"orientation": "inherit",
-		"modules": [
-			"hyprland/window"
-		]
-	},
-	
-	"group/curweather": {
-		"orientation": "inherit",
-		"modules": [
-			"custom/weather"
 		]
 	},
 
