@@ -1,5 +1,11 @@
 theme = "term"
 
+[editor]
+"popup-border" = "menu"
+
+[editor.soft-wrap]
+"enable" = true
+
 [editor.cursor-shape]
 insert = "bar"
 normal = "block"
@@ -15,7 +21,13 @@ mode.insert = "ins"
 mode.select = "sel"
 
 [keys.normal]
+esc = ["collapse_selection", "keep_primary_selection"]
+"ret" = ["open_below", "normal_mode"]
+";" = "command_mode"
+"'" = "flip_selections"
 D = "kill_to_line_end"
+H = "extend_to_line_start"
+I = "extend_to_line_end"
 
 n = "move_visual_line_down"
 e = "move_visual_line_up"
@@ -25,7 +37,7 @@ k = "move_next_word_end"
 K = "move_next_long_word_end"
 
 l = "insert_mode"
-L = "insert_at_line_end"
+L = "insert_at_line_start"
 
 A-e = "keep_selections"
 A-E = "remove_selections"
@@ -35,6 +47,8 @@ A-k = "move_parent_node_end"
 j = "search_next"
 J = "search_prev"
 
+N = "join_selections"
+
 [keys.normal.z]
 n = "scroll_down"
 e = "scroll_up"
@@ -43,6 +57,7 @@ k = "no_op"
 
 [keys.normal.g]
 k = "goto_last_line"
+h = "goto_line_start"
 i = "goto_line_end"
 l = "goto_implementation"
 j = "goto_next_buffer"
@@ -69,8 +84,17 @@ J = "no_op"
 K = "no_op"
 L = "no_op"
 
+[keys.normal.space]
+# word count
+A-w = "@<A-|>tee /tmp/helix-wc.file<ret>:sh cat /tmp/helix-wc.file | wc -w<ret>"
 
 [keys.select]
+";" = "command_mode"
+"'" = "flip_selections"
+D = "kill_to_line_end"
+H = "extend_to_line_start"
+I = "extend_to_line_end"
+
 n = "extend_visual_line_down"
 e = "extend_visual_line_up"
 i = "extend_char_right"
@@ -88,6 +112,8 @@ A-k = "extend_parent_node_end"
 
 j = "extend_search_next"
 J = "extend_search_prev"
+
+N = "join_selections"
 
 [keys.select.z]
 n = "scroll_down"
@@ -122,3 +148,7 @@ C-l = "no_op"
 J = "no_op"
 K = "no_op"
 L = "no_op"
+
+[keys.select.space]
+# word count
+A-w = "@<A-|>tee /tmp/helix-wc.file<ret>:sh cat /tmp/helix-wc.file | wc -w<ret>"
