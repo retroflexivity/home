@@ -1,0 +1,4 @@
+#!/usr/bin/zsh
+
+file="$(realpath $1)"
+wl-copy -t "text/uri-list" "file://$file"
