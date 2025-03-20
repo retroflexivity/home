@@ -14,7 +14,7 @@
 "waybar" = "~/.config/waybar"
 "systemd" = "~/.config/systemd/user"
 "v2raya.json" = "~/.config/v2raya/current-config.json"
-"tridactylrc" = "~/.config/tridactyl/tridactylrc"
+"tridactyl" = "~/.config/tridactyl"
 "scripts" = "~/bin"
 "popups" = "~/bin"
 "zsh-functions" = "~/.config/zsh-functions"

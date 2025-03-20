@@ -1,0 +1,69 @@
+" General Settings
+set searchengine duckduckgo
+set theme concrete
+set smoothscroll true
+set containerindicator false
+set editorcmd kitty --class "popup-editor" helix
+
+" Binds
+bind h scrollpx -50
+bind n scrollline 10
+bind e scrollline -10
+bind i scrollpx 50
+
+unbind j
+unbind k
+
+bind H back
+bind N tabnext
+bind E tabprev
+bind I forward
+
+unbind J
+unbind K
+unbind L
+
+bind d scrollpage 0.5
+bind u scrollpage -0.5
+
+bind gk scrollto 100
+
+bind t fillcmdline tabopen
+bind T current_url tabopen
+
+bind U undo
+bind q tabclose
+bind l mode ignore
+
+"visual
+bind --mode=visual h js document.getSelection().modify("extend","backward","character")
+bind --mode=visual n js document.getSelection().modify("extend","forward","line")
+bind --mode=visual e js document.getSelection().modify("extend","backward","line")
+bind --mode=visual i js document.getSelection().modify("extend","forward","character")
+
+bind --mode=visual k js document.getSelection().modify("extend","forward","word")
+
+unbind --mode=visual j
+
+bind --mode=visual H back
+bind --mode=visual N tabnext
+bind --mode=visual E tabprev
+bind --mode=visual I forward
+
+unbind --mode=visual J
+unbind --mode=visual K
+unbind --mode=visual L
+
+bind --mode=visual d scrollpage 0.5
+bind --mode=visual u scrollpage -0.5
+
+bind --mode=visual gk scrollto 100
+
+bind --mode=visual t fillcmdline tabopen
+bind --mode=visual T current_url tabopen
+
+bind --mode=visual U undo
+bind --mode=visual q tabclose
+bind --mode=visual l mode ignore
+
+bind --mode=visual <C-q> composite js document.getSelection().toString() | text2qr --timeout 5
