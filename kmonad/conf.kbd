@@ -41,8 +41,8 @@
                    
   _fn (tap-hold-next-release 300 spc (layer-toggle fn))
 
-  lmb (cmd-button "ydotool click 0xC0")
-  rmb (cmd-button "ydotool click 0xC1") 
+  lmb (cmd-button "wlrctl pointer click left")
+  rmb (cmd-button "wlrctl pointer click right") 
 
   wdb (around ctl lft)
   wde (around ctl rght)
@@ -57,7 +57,7 @@
   tab  q    w    f    p    g    j    @lsf @uct @yal @:me [    ]    \
   esc  @ame @ral @sct @tsf d    h    n    e    i    o    '    ret
   lsft z    x    c    v    b    k    m    ,    .    /   rsft
-  lctl lalt           @_fn           ralt rctl
+  lctl nlck           @_fn           ralt rctl
 )
 
 (deflayer fn

@@ -5,5 +5,5 @@ if [[ $1 == "start" ]]; then
 elif [[ $1 == "stop" ]]; then
   hyprctl keyword cursor:inactive_timeout 3; hyprctl keyword cursor:hide_on_key_press true; hyprctl dispatch submap reset 
 elif [[ $1 == "point" ]]; then
-  hyprctl dispatch submap reset && wl-kbptr -c ~/.config/wl-kbptr/config && hyprctl dispatch submap cursor
+  hyprctl dispatch submap reset && wl-kbptr -c ~/.config/wl-kbptr/config
 fi
