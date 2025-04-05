@@ -31,6 +31,10 @@ label.module, #window {
     padding: 0px 7px;
 }    
 
+#submap {
+    min-width: 50px;
+}
+
 #filler, #fillerround, #hlsubmap {
     margin-right: 0px;
 }

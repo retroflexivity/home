@@ -98,6 +98,15 @@
     "signal": 7
 	},
 
+	"hyprland/submap": {
+		"always-on": true,
+		"justify": "center",
+		"default-submap": "main",
+		"rewrite": {
+      "Default": "insert",
+		}
+	},
+
 	"hyprland/workspaces": {
 		"disable-scroll-wraparound": false,
 		"smooth-scrolling-threshold": 4,
