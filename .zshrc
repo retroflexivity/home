@@ -51,7 +51,7 @@ alias myip='curl -s ipinfo.io | tr --delete "\n" | jq -r ".ip,.country"'
 
 alias cf='copy-file'
 
-alias lxm='latexmk'
+alias lxm='rm *-tags.tex; latexmk; rm *-tags.tex'
 alias lxmc='latexmk -c'
 
 alias cex='calibredb export --dont-write-opf --dont-save-cover --dont-asciiize --single-dir --to-dir Books'
