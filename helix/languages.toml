@@ -12,10 +12,6 @@ feature_unicode_input = false        # enable "unicode input"
 feature_paths = false                # enable path completion
 feature_citations = false            # enable citation completion (only on `citation` feature enabled)
 
-[[language]]
-name = "latex"
-language-servers = [ "scls", "texlab" ]
-
 # introduce a new language to enable completion on any doc by forcing set language with :set-language stub
 [[language]]
 name = "stub"
@@ -24,4 +20,16 @@ file-types = []
 shebangs = []
 roots = []
 auto-format = false
-language-servers = [ "scls" ]
+language-servers = ["scls"]
+
+[[language]]
+name = "latex"
+language-servers = ["scls", "texlab"]
+
+
+[language-sevrevr.tinymist]
+command = "tinymist"
+
+[[language]]
+name = "typst"
+language-servers = ["tinymist"]

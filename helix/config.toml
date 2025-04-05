@@ -20,6 +20,9 @@ mode.normal = "nor"
 mode.insert = "ins"
 mode.select = "sel"
 
+[editor.lsp]
+auto-signature-help = false
+
 [keys.normal]
 esc = ["collapse_selection", "keep_primary_selection"]
 "ret" = ["open_below", "normal_mode"]
@@ -86,6 +89,7 @@ L = "no_op"
 
 [keys.normal.space]
 # word count
+i = "signature_help"
 A-w = "@<A-|>tee /tmp/helix-wc.file<ret>:sh cat /tmp/helix-wc.file | wc -w<ret>"
 
 [keys.select]
@@ -151,4 +155,5 @@ L = "no_op"
 
 [keys.select.space]
 # word count
+i = "signature_help"
 A-w = "@<A-|>tee /tmp/helix-wc.file<ret>:sh cat /tmp/helix-wc.file | wc -w<ret>"
