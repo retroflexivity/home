@@ -51,7 +51,7 @@ configuration {
 /*	window-thumbnail: false;*/
 /*	drun-use-desktop-cache: false;*/
 /*	drun-reload-desktop-cache: false;*/
-/*	normalize-match: false;*/
+	normalize-match: true;
 /*	steal-focus: false;*/
 /*	application-fallback-icon: ;*/
 /*	refilter-timeout-limit: 300;*/
