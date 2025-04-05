@@ -1,0 +1,164 @@
+@define-color color0   #f7f7f7;
+@define-color color8   #e7e7e7;
+@define-color color1   #bd4e46;
+@define-color color9   #944540;
+@define-color color2   #46bd80;
+@define-color color10  #409168;
+@define-color color3   #b3a430;
+@define-color color11  #9e9336;
+@define-color color4   #4695bd;
+@define-color color12  #45748c;
+@define-color color5   #a64eb5;
+@define-color color13  #814c8a;
+@define-color color6   #46b5bd;
+@define-color color14  #428085;
+@define-color color7   #2b2b2b;
+@define-color color15  #0b0b0b;
+
+@define-color foreground @color7;
+@define-color background @color0;
+@define-color cursor @color7;
+@define-color accent @color1;
+
+
+#window,
+#box,
+#aiScroll,
+#aiList,
+#search,
+#password,
+#input,
+#prompt,
+#clear,
+#typeahead,
+#list,
+child,
+scrollbar,
+slider,
+#item,
+#text,
+#label,
+#bar,
+#sub,
+#activationlabel {
+  all: unset;
+}
+
+#window {
+  color: @foreground;
+  font-size: 17px;
+  font-family: monospace;
+}
+
+#box {
+  border-radius: 2px;
+  background: @background;
+  padding: 40px;
+  border: 3px solid @foreground;
+  border-radius: 20px;
+}
+
+#search {
+  background: @background;
+  color: @accent;
+}
+
+#prompt {
+  margin-left: 4px;
+  margin-right: 12px;
+  opacity: 1;
+}
+
+#clear {
+  color: @foreground;
+  opacity: 0.8;
+}
+
+#password,
+#input,
+#typeahead {
+  border-radius: 2px;
+}
+
+#input {
+  background: none;
+}
+
+#password {
+}
+
+#spinner {
+  padding: 8px;
+}
+
+#typeahead {
+  color: @foreground;
+}
+
+#input placeholder {
+  opacity: 0;
+}
+
+child {
+  padding: 8px;
+  border-left: 3px solid transparent;
+}
+
+child:selected,
+child:hover {
+  color: @accent;
+  border-left: 3px solid @accent;
+}
+
+#item {
+}
+
+#icon {
+  margin-right: 8px;
+}
+
+#text {
+}
+
+#label {
+  font-weight: 500;
+}
+
+#sub {
+  opacity: 0.5;
+  font-size: 0.8em;
+}
+
+#activationlabel {
+}
+
+#bar {
+}
+
+.barentry {
+}
+
+.activation #activationlabel {
+}
+
+.activation #text,
+.activation #icon,
+.activation #search {
+  opacity: 0.5;
+}
+
+.aiItem {
+  padding: 10px;
+  border-radius: 2px;
+  color: @foreground;
+  background: @background;
+}
+
+.aiItem.user {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.aiItem.assistant {
+  background: lighter(@background);
+}

@@ -11,6 +11,7 @@
 "rofi/theme.rasi" = "~/.config/rofi/themes/concrete.rasi"
 "rofimoji.rc" = "~/.config/rofimoji.rc"
 "rofi-rbw.rc" = "~/.config/rofi-rbw.rc"
+"walker" = "~/.config/walker"
 "waybar" = "~/.config/waybar"
 "systemd" = "~/.config/systemd/user"
 "v2raya.json" = "~/.config/v2raya/current-config.json"
@@ -20,7 +21,7 @@
 "zsh-functions" = "~/.config/zsh-functions"
 "keyd.conf" = "/etc/keyd/keyd.conf"
 "kmonad" = "/etc/kmonad"
-"logind.conf" = "etc/systemd/logind.conf"
+"logind.conf" = "/etc/systemd/logind.conf"
 ".zshrc" = "~/.zshrc"
 
 [default.variables]
