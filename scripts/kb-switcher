@@ -1,6 +1,13 @@
 #!/usr/bin/zsh
 
 DEVICE="main"
+WAIT_MS=800
+
+# layout order
+# los[1] is the current layout, subsequent are chronologically ordered
+get_los () {
+	los=( "${(s[ ])$(</tmp/layouts)}" )
+}
 
 # get layout names in specific order
 get_lo_names () {
@@ -13,19 +20,10 @@ get_lo_names () {
 	done
 }
 
-# get layouts from hyprland if not already
-if [ ! -f /tmp/layouts ] || [[ $1 == "sync" ]]; then
-	hlos=( ${(s[,])$(hyprctl getoption input:kb_layout | head -1 | cut -d ' ' -f 2-)} )
-	los=( $(seq 0 $((${#hlos} - 1))) )
-	echo "$los" > /tmp/layouts
-fi
+cycle () {
+	get_los
 
-# layout order
-# los[1] is the current layout, subsequent are chronologically ordered
-los=( "${(s[ ])$(</tmp/layouts)}" )
-
-if [[ $1 == "cycle" ]]; then
-	# if we just started cycling, the current-layout-index file does not exist
+	# if we've just started cycling, the current-layout-index file does not exist
 	if [[ -f /tmp/cur_layout ]]; then
 		cur_lo=$(($(</tmp/cur_layout) + 1))
 	else
@@ -43,13 +41,48 @@ if [[ $1 == "cycle" ]]; then
 	echo $cur_lo > /tmp/cur_layout
 
 	get_lo_names $los
-	notify-send -h string:x-dunst-stack-tag:kbsw "$(echo "${lo_names:0:$(($cur_lo - 1))} [${lo_names[$cur_lo]}] ${lo_names:$cur_lo}" | xargs)"
+	notify-send -h string:x-dunst-stack-tag:kbsw -t $WAIT_MS "$(echo "${lo_names:0:$(($cur_lo - 1))} [${lo_names[$cur_lo]}] ${lo_names:$cur_lo}" | xargs)"
+}
+
+update_order () {
+	get_los
+	cur_lo=$(</tmp/cur_layout)
+	echo "${los[$cur_lo]} ${los:0:$(($cur_lo - 1))} ${los:$cur_lo}" | xargs > /tmp/layouts
+	rm /tmp/cur_layout
+}
+
+check_if_old () {
+	is_old=false
+	if [[ -f /tmp/cur_layout ]] && [[ -f /tmp/layout_timer ]]; then
+		now=$(date +%s%3N)
+		last=$(</tmp/layout_timer)
+		# if more than limit has passed
+		if (( $last < $now - $WAIT_MS)); then
+			is_old=true
+		fi
+	fi
+}
+
+# get layouts from hyprland if not already
+if [ ! -f /tmp/layouts ] || [[ $1 == "sync" ]]; then
+	hlos=( ${(s[,])$(hyprctl getoption input:kb_layout | head -1 | cut -d ' ' -f 2-)} )
+	los=( $(seq 0 $((${#hlos} - 1))) )
+	echo "$los" > /tmp/layouts
+fi
+
+if [[ $1 == "cycle" ]]; then
+	cycle
 fi
 
 if [[ $1 == "set" ]]; then
-	cur_lo=$(</tmp/cur_layout)
-	echo setting ${los[$cur_lo]}
-	hyprctl switchxkblayout $DEVICE ${los[$cur_lo]}
-	echo "${los[$cur_lo]} ${los:0:$(($cur_lo - 1))} ${los:$cur_lo}" | xargs > /tmp/layouts
-	rm /tmp/cur_layout
+	update_order
+fi
+
+if [[ $1 == "timed" ]]; then
+	check_if_old
+	if [[ $is_old == true ]]; then 
+		update_order
+	fi
+	cycle
+	date +%s%3N > /tmp/layout_timer
 fi

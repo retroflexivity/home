@@ -1,0 +1,14 @@
+#!/usr/bin/zsh
+
+declare -A bordercolors
+bordercolors=(
+  main     "rgb(bd4e46)"
+  move     "rgb(4695bd)"
+  resize   "rgb(46bd80)"
+  launch   "rgb(00000000)"
+  insert   "rgb(2b2b2b)"
+  reset    "rgb(bd4e46)"
+)
+
+hyprctl keyword general:col.active_border $bordercolors[$1]
+hyprctl dispatch submap $1
