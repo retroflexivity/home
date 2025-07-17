@@ -6,6 +6,7 @@
 "dunstrc" = "~/.config/dunst/dunstrc"
 "hypr" = "~/.config/hypr"
 "kitty" = "~/.config/kitty"
+"sioyek" = "~/.config/sioyek"
 "wl-kbptr" = "~/.config/wl-kbptr"
 "rofi/config.rasi" = "~/.config/rofi/config.rasi"
 "rofi/theme.rasi" = "~/.config/rofi/themes/concrete.rasi"
@@ -16,12 +17,13 @@
 "systemd" = "~/.config/systemd/user"
 "v2raya.json" = "~/.config/v2raya/current-config.json"
 "tridactyl" = "~/.config/tridactyl"
-"scripts" = "~/bin"
-"popups" = "~/bin"
+"scripts" = "~/.local/bin"
+"popups" = "~/.local/bin"
 "zsh-functions" = "~/.config/zsh-functions"
 "keyd.conf" = "/etc/keyd/keyd.conf"
 "kmonad" = "/etc/kmonad"
 "logind.conf" = "/etc/systemd/logind.conf"
+"fish" = "~/.config/fish"
 ".zshrc" = "~/.zshrc"
 
 [default.variables]

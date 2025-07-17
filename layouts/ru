@@ -46,7 +46,11 @@ xkb_symbols "better_punct" {
     include "ru(winkeys)"
     name[Group1]= "Russian";
 
-    key <AE03>	{[          3,      number  ]};
+    key <AE03>	{[          3,      numbersign  ]};
+    key <AE09>	{[          9,       parenleft,    guillemotleft ]};
+    key <AE10>	{[          0,      parenright,   guillemotright ]};
 
-    key <BKSL>	{[     emdash,       slash,    endash,    backslash  ]};
+    key <BKSL>	{[     emdash,           slash,           endash,    backslash  ]};
+
+	include "level3(ralt_switch)"
 };

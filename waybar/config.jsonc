@@ -90,21 +90,20 @@
 
 	// Modules
 
+	"hyprland/submap": {
+		"always-on": true,
+		"default-submap": "main",
+		// "justify": "center",
+	},
+
 	"custom/weather": {
 		"exec": "weather s",
 		"interval": "600",
 		"on-click": "weather",
 		"exec-on-event": "true",
-    "signal": 7
-	},
-
-	"hyprland/submap": {
-		"always-on": true,
-		"justify": "center",
-		"default-submap": "main",
-		"rewrite": {
-      "Default": "insert",
-		}
+    "signal": 7,
+    "max-length": 30,
+		// "justify": "center",
 	},
 
 	"hyprland/workspaces": {
@@ -142,7 +141,8 @@
 
 	"hyprland/language": {
 		"format": "kb: {short}",
-		"tooltip": false
+		"tooltip": false,
+		"justify": "center",
 	},
 
 	"network": {
@@ -203,7 +203,8 @@
 			"warning": 70,
 			"critical": 90
 		},
-		"on-click": "sysmonitor"
+		"on-click": "sysmonitor",
+		"justify": "right",
 	},
 
 	"memory": {
@@ -213,13 +214,15 @@
 			"warning": 70,
 			"critical": 90
 		},
-		"on-click": "sysmonitor"
+		"on-click": "sysmonitor",
+		"justify": "right",
 	},
 
 	"temperature": {
 		"interval": 5,
 		"format": "{temperatureC}°C",
 		"critical-threshold": 70,
-		"on-click": "sysmonitor"
+		"on-click": "sysmonitor",
+		"justify": "right",
 	}
 }

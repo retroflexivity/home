@@ -1,5 +1,5 @@
 " General Settings
-set searchengine duckduckgo
+set searchengine google
 set theme concrete
 set smoothscroll true
 set containerindicator false
@@ -34,6 +34,8 @@ bind T current_url tabopen
 bind U undo
 bind q tabclose
 bind l mode ignore
+unbind r
+unbind R
 
 "visual
 bind --mode=visual h js document.getSelection().modify("extend","backward","character")

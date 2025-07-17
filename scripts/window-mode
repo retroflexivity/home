@@ -1,14 +1,26 @@
 #!/usr/bin/zsh
 
+if [[ $1 == "prev" ]] && [[ -f /tmp/prev-submap ]]; then
+  submap=$(< /tmp/prev-submap)
+  echo $submap
+  if [[ $submap == "default" ]]; then
+    submap="reset"
+  fi
+else
+  submap=$1
+fi
+
+hyprctl submap | head -1 > /tmp/prev-submap
+
 declare -A bordercolors
 bordercolors=(
-  main     "rgb(bd4e46)"
   move     "rgb(4695bd)"
   resize   "rgb(46bd80)"
-  launch   "rgb(00000000)"
+  launch   "rgb(944540)"
   insert   "rgb(2b2b2b)"
+  cursor   "rgb(00000000)"
   reset    "rgb(bd4e46)"
 )
 
-hyprctl keyword general:col.active_border $bordercolors[$1]
-hyprctl dispatch submap $1
+hyprctl keyword general:col.active_border $bordercolors[$submap]
+hyprctl dispatch submap $submap

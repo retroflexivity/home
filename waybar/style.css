@@ -5,7 +5,7 @@ window#waybar {
 }
 
 * {
-    color: #2b2b2b
+    color: #2b2b2b;
 }
 
 label.module, #window {
@@ -25,41 +25,68 @@ label.module, #window {
 #kblayout,
 #workspaces {
     font-size: 15px;
-    color: #2b2b2b;
     border: 3px solid #2b2b2b;
-    margin: 6px 6px 0px 6px;
+    margin: 6px 6px 1px 6px;
     padding: 0px 7px;
+    border-radius: 0.8em;
 }    
 
 #submap {
-    min-width: 50px;
+    min-width: 48px;
+}
+
+#language {
+    min-width: 42px;
+}
+
+#weather {
+    min-width: 200px;
+}
+
+/* #temperature { */
+    /* min-width: 30px; */
+/* } */
+
+/* #cpu { */
+    /* min-width: 70px; */
+/* } */
+
+/* #memory { */
+    /* min-width: 70px; */
+/* } */
+
+/* #hardware { */
+    /* min-width: 13em; */
+/* } */
+
+#temperature, #cpu, #memory {
+    margin-right: 0em;
+    /* margin-left: auto; */
 }
 
 #filler, #fillerround, #hlsubmap {
     margin-right: 0px;
 }
 
-#fillerround {
-    border-radius: 2em;
-}
-
-#datetime, #kblayout, #volume {
+#datetime, #kblayout, #volume, #fillerround  {
     border-radius: 30em;
 }
 
 #workspaces {
+    margin: 6px 12px 1px 12px;
     border: 0px;
     padding: 0px
 }
 
 #workspaces button {
-    border: 3px solid #2b2b2b;
-    margin: 0px 3px;
-    border-radius: 0em;
+    margin: 0px 0px;
+    min-width: 16px;
+    border: 3px solid rgba(0, 0, 0, 0);
+    border-radius: 10em;
 }
 
 #workspaces button.active {
-    border-radius: 10em;
+    border-color: #2b2b2b;
     text-decoration: underline;
     color: #ff0000;
 }

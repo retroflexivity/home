@@ -1,4 +1,5 @@
 [general]
+modes=floating
 home_row_keys=arstneiovbc
 
 [mode_tile]
@@ -7,6 +8,15 @@ label_select_color=#bd4e46
 unselectable_bg_color=#5555
 selectable_bg_color=#f7f7f755
 selectable_border_color=#0b0b0b55
+label_font_family=monospace
+
+[mode_floating]
+source=detect
+label_color=#0b0b0b
+label_select_color=#bd4e46
+unselectable_bg_color=#f7f7f7d5
+selectable_bg_color=#f7f7f7d5
+selectable_border_color=#f7f7f7d5
 label_font_family=monospace
 
 [mode_bisect]

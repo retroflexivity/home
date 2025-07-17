@@ -38,6 +38,9 @@
   uct (tap-hold-next-release 300 u lctl)
   yal (tap-hold-next-release 300 y lalt)
   :me (tap-hold-next-release 300 ; lmet)
+
+  xsf (tap-hold-next-release 300 esc lsft)
+  wct (tap-hold-next-release 300 scrolllock lctl)
                    
   _fn (tap-hold-next-release 300 spc (layer-toggle fn))
 
@@ -46,13 +49,16 @@
 
   wdb (around ctl lft)
   wde (around ctl rght)
+
+  gam (layer-switch gaming)
+  xgm (layer-switch colemak)
 )
 
 
 ;; LAYERS
 
 (deflayer colemak
-  esc  back refresh f3 scale sysrq brightnessdown brightnessup mute volumedown volumeup @lmb  
+  esc  back refresh f3 scale sysrq brightnessdown brightnessup mute volumedown volumeup @gam  
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  q    w    f    p    g    j    @lsf @uct @yal @:me [    ]    \
   esc  @ame @ral @sct @tsf d    h    n    e    i    o    '    ret
@@ -61,10 +67,19 @@
 )
 
 (deflayer fn
-  esc  XX   XX   XX   XX   XX   kbdillumdown kbdillumup XX   XX   XX @rmb
+  esc  XX   XX   XX   XX   XX   kbdillumdown kbdillumup XX   XX   XX @gam
   XX   f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  del
   XX   XX   XX   tab  ret  XX   XX   _    _    _    _    XX   XX   XX
-  caps _    _    _    _    del  lft  down up   rght XX   XX   XX
+  caps _    _    @wct @xsf del  lft  down up   rght XX   XX   XX
   XX   XX   bspc XX   XX   XX   home pgdn pgup end  XX   XX
   XX   XX             XX             XX   XX  
+)
+
+(deflayer gaming
+  slck f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  @xgm
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    f    p    g    j    l    u    y    ;    [    ]    \
+  esc  a    r    s    t    d    h    n    e    i    o    '    ret
+  lsft z    x    c    v    b    k    m    ,    .    /   slck
+  lctl lalt           spc            ralt @_fn
 )
