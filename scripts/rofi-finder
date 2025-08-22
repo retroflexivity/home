@@ -1,0 +1,36 @@
+#!/usr/bin/env fish
+
+set data_dir $(test -n "$XDG_DATA_HOME"; and echo "$XDG_DATA_HOME"; or echo "$HOME/.local/share")
+set history_dir "$data_dir/rofi-finder"
+set history_file "$history_dir/history"
+mkdir -p "$history_dir"
+
+cd ~
+
+function update_history
+    set filename $argv[1]
+    set temp_file (mktemp)
+    echo "$filename" >"$temp_file"
+    grep -v "^$filename\$" "$history_file" 2>/dev/null | head -n 24 >>"$temp_file"
+    mv "$temp_file" "$history_file"
+end
+
+set res $(
+    begin
+        for file in $(cat $history_file)
+            test -f $file; and echo $file
+        end
+        find * -not -path "*/.*" -type f -print
+    end | rofi -dmenu -i -kb-custom-1 "Alt+c"
+)
+
+switch $status
+    case 0
+        xdg-open $res
+    case 10
+        copy-file $res
+end
+
+if test $status -eq 0
+    update_history $res
+end

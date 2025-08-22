@@ -1,0 +1,18 @@
+[settings]
+default-library = articles
+
+[papers]
+dir = /home/ark/articles
+
+formatter = jinja2
+ref-format = {{ (doc.author_list | first).family | lower}}{{ doc.year }}{{ doc.title | lower | replace(" the ", " ") | replace(" a ", " ") | replace(" and ", " ") | replace(" as ", " ") | replace(" of ", " ") | replace(" for ", " ") | replace(" to ", " ") | replace(" in ", " ") | replace(" at ", " ") | truncate(40) }}
+add-folder-name = {{ doc.author_list | join("-", attribute="family") | default("Unauthored", true) | lower }}-{{ doc.year }}
+add-file-name = {%% if (doc.author_list | length) > 2 %%}{{ (doc.author_list | first).family }} et al.{%% else %%}{{ doc.author_list | join(" and ", attribute="family") | default("Unauthored", true) }}{%% endif %%} {{ doc.year }}. {{ doc.shorttitle | default(doc.title, true) }}
+doc-paths-lowercase = false
+doc-paths-extra-chars = " ()‐\-_"
+doc-paths-word-separator = 
+ref-word-separator = 
+header-format = <ansired>{{ doc.title | escape }}</ansired>
+  <ansired>{{ doc.author | escape }}</ansired>
+  <ansiblue>({{ doc.year | escape }})</ansiblue> <ansiyellow>{{ doc.tags | join(", ") | escape }}</ansiyellow>
+match-format = {{ doc.tags }}{{ doc.subfolder }}{{ doc.title }}{{ doc.author }}{{ doc.year }}

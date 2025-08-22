@@ -50,6 +50,8 @@
   wdb (around ctl lft)
   wde (around ctl rght)
 
+  loa (tap-hold-next-release 300 kbdlayoutnext ralt)
+
   gam (layer-switch gaming)
   xgm (layer-switch colemak)
 )
@@ -58,16 +60,16 @@
 ;; LAYERS
 
 (deflayer colemak
-  esc  back refresh f3 scale sysrq brightnessdown brightnessup mute volumedown volumeup @gam  
+  esc  back refresh f11 pp ssrq brdn brup mute volumedown volumeup @gam  
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  q    w    f    p    g    j    @lsf @uct @yal @:me [    ]    \
   esc  @ame @ral @sct @tsf d    h    n    e    i    o    '    ret
-  slck z    x    c    v    b    k    m    ,    .    /   slck
-  lctl nlck           @_fn           ralt rctl
+  home z    x    c    v    b    k    m    ,    .    /   home
+  lctl ins            @_fn           @loa comp
 )
 
 (deflayer fn
-  esc  XX   XX   XX   XX   XX   kbdillumdown kbdillumup XX   XX   XX @gam
+  esc  XX   XX   XX   XX   XX   bldn blup XX   XX   XX   @gam
   XX   f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  del
   XX   XX   XX   tab  ret  XX   XX   _    _    _    _    XX   XX   XX
   caps _    _    @wct @xsf del  lft  down up   rght XX   XX   XX

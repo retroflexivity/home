@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+bluetoothctl scan on
+
+fish --init-command="function btr --on-event fish_prompt
+    commandline -i 'bluetoothctl '
+end
+"
+

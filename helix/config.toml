@@ -3,7 +3,6 @@ theme = "term"
 [editor]
 "scrolloff" = 5
 "popup-border" = "menu"
-"mouse" = false
 "continue-comments" = false
 "jump-label-alphabet" = "arstneiodhqwfpgjluyzxcvbkm"
 
@@ -173,8 +172,8 @@ k = "no_op"
 
 [keys.select.g]
 # layout changes
-k = "goto_last_line"
-i = "goto_line_end"
+k = "extend_to_last_line"
+i = "extend_to_line_end"
 l = "goto_implementation"
 j = "goto_next_buffer"
 n = "select_line_below"

@@ -24,11 +24,8 @@ mainbox {
 
 inputbar {
     background-color:   @bg;
-//    border-color:       @fg0;
-//    border:             3px;
-//    border-radius:      20px;
 
-    padding:    8px 16px;
+    padding:    0px 16px 16px;
     spacing:    8px;
     children:   [ prompt, entry ];
 }
@@ -41,15 +38,8 @@ entry {
     text-color:  @fg1;
 }
 
-message {
-    margin:             12px 0 0;
-    border-radius:      16px;
-    border-color:       @bg;
-    background-color:   @bg;
-}
-
 textbox {
-    padding:    8px 24px;
+    padding:    16px 16px 16px;
 }
 
 listview {

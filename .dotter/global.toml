@@ -7,6 +7,7 @@
 "hypr" = "~/.config/hypr"
 "kitty" = "~/.config/kitty"
 "sioyek" = "~/.config/sioyek"
+"papis" = { target = "~/.config/papis", type = "symbolic" }
 "wl-kbptr" = "~/.config/wl-kbptr"
 "rofi/config.rasi" = "~/.config/rofi/config.rasi"
 "rofi/theme.rasi" = "~/.config/rofi/themes/concrete.rasi"

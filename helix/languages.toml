@@ -1,3 +1,29 @@
+# HTML
+[[language]]
+name = "htmldjango"
+file-types = [{ glob = "templates/*.html" }, ]
+
+
+# PYTHON
+[[language]]
+name = "python"
+language-servers = ["pylsp"]
+
+[language-server.pylsp.config.pylsp]
+plugins.pylsp_mypy.enabled = true
+plugins.pylsp_mypy.live_mode = true
+
+
+# TYPST
+[language-sevrevr.tinymist]
+command = "tinymist"
+
+[[language]]
+name = "typst"
+language-servers = ["tinymist"]
+
+
+# GENERIC COMPLETIONS
 # introduce new language server
 [language-server.scls]
 command = "simple-completion-language-server"
@@ -25,11 +51,3 @@ language-servers = ["scls"]
 [[language]]
 name = "latex"
 language-servers = ["scls", "texlab"]
-
-
-[language-sevrevr.tinymist]
-command = "tinymist"
-
-[[language]]
-name = "typst"
-language-servers = ["tinymist"]

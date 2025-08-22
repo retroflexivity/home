@@ -1,6 +1,32 @@
 configuration {
-	modes: "combi";
+	modes: "";
 	font: "sans 12";
+
+	ssh-command: "{terminal} --hold -e {ssh-client} {host} [-p {port}]";
+	run-shell-command: "{terminal} --hold {cmd}";
+
+	combi-modes: "run,drun";
+	combi-display-format: "{text}";
+
+	normalize-match: true;
+
+	timeout {
+	    action: "kb-cancel";
+	    delay:  0;
+	}
+	filebrowser {
+	    directories-first: true;
+	    sorting-method:    "name";
+	}
+	recursivefilebrowser {
+	    directory: "/home/ark";
+	}
+	calc {
+		calc-command: "echo -n '{result}' | wl-copy";
+		hint-result: "result: ";
+	}
+
+
 /*	location: 0;*/
 /*	yoffset: 0;*/
 /*	xoffset: 0;*/
@@ -8,10 +34,8 @@ configuration {
 /*	show-icons: false;*/
 /*	terminal: "rofi-sensible-terminal";*/
 /*	ssh-client: "ssh";*/
-	ssh-command: "{terminal} --hold -e {ssh-client} {host} [-p {port}]";
 /*	run-command: "{cmd}";*/
-	/* run-list-command: "{cmd}"; */
-	run-shell-command: "{terminal} --hold {cmd}";
+/*  run-list-command: "{cmd}"; */
 /*	window-command: "wmctrl -i -R {window}";*/
 /*	window-match-fields: "all";*/
 /*	icon-theme: ;*/
@@ -32,7 +56,6 @@ configuration {
 /*	auto-select: false;*/
 /*	parse-hosts: false;*/
 /*	parse-known-hosts: true;*/
-	combi-modes: "run,drun";
 /*	matching: "normal";*/
 /*	tokenize: true;*/
 /*	m: "-5";*/
@@ -45,13 +68,11 @@ configuration {
 /*	global-kb: false;*/
 /*	max-history-size: 25;*/
 /*	combi-hide-mode-prefix: false;*/
-	combi-display-format: "{text}";
 /*	matching-negate-char: '-' /* unsupported */;*/
 /*	cache-dir: ;*/
 /*	window-thumbnail: false;*/
 /*	drun-use-desktop-cache: false;*/
 /*	drun-reload-desktop-cache: false;*/
-	normalize-match: true;
 /*	steal-focus: false;*/
 /*	application-fallback-icon: ;*/
 /*	refilter-timeout-limit: 300;*/
@@ -107,9 +128,6 @@ configuration {
 /*	kb-toggle-case-sensitivity: "grave,dead_grave";*/
 /*	kb-toggle-sort: "Alt+grave";*/
 /*	kb-cancel: "Escape,Control+g,Control+bracketleft";*/
-	/* kb-custom-1: "Alt+z"; */
-	/* kb-custom-2: "Alt+x"; */
-	/* kb-custom-3: "Alt+c"; */
 /*	kb-custom-4: "Alt+4";*/
 /*	kb-custom-5: "Alt+5";*/
 /*	kb-custom-6: "Alt+6";*/
@@ -145,17 +163,6 @@ configuration {
 /*	me-select-entry: "MousePrimary";*/
 /*	me-accept-entry: "MouseDPrimary";*/
 /*	me-accept-custom: "Control+MouseDPrimary";*/
-  timeout {
-      action: "kb-cancel";
-      delay:  0;
-  }
-  filebrowser {
-      directories-first: true;
-      sorting-method:    "name";
-  }
-  recursivefilebrowser {
-      directory: "/home/ark";
-  }
 }
 
 @theme "/home/ark/.config/rofi/themes/concrete.rasi"
