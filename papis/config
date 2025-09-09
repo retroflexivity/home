@@ -1,7 +1,7 @@
 [settings]
 default-library = articles
 
-[papers]
+[articles]
 dir = /home/ark/articles
 
 formatter = jinja2
