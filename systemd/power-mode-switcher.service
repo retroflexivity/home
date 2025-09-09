@@ -1,6 +1,6 @@
 [Service]
 Environment=STARTUP_WAIT=30s
-ExecStart=/home/ark/bin/power-mode-switcher
+ExecStart=/home/ark/.local/bin/power-mode-switcher
 
 [Install]
 WantedBy=default.target

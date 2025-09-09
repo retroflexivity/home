@@ -2,4 +2,4 @@
 Description="rclone bisync google drive"
 
 [Service]
-ExecStart=/home/ark/bin/rclone-gdrive
+ExecStart=/home/ark/.local/bin/rclone-gdrive

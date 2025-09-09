@@ -1,9 +1,9 @@
 [Unit]
-Description="Run rclone-gdrive.service on boot and every 10 mins relative to activation time"
+Description="Run rclone-gdrive.service on boot and every 60 mins relative to activation time"
 
 [Timer]
 OnBootSec=20sec
-OnUnitActiveSec=10min
+OnUnitActiveSec=60min
 Unit=rclone-gdrive.service
 
 [Install]
