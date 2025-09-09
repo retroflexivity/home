@@ -44,4 +44,6 @@ if status is-interactive
     abbr -a lxmc "latexmk -c"
 
     abbr -a cex "calibredb export --dont-write-opf --dont-save-cover --dont-asciiize --single-dir --to-dir Books"
+
+    bind ctrl-y fish_clipboard_copy
 end

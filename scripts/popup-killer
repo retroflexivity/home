@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/usr/bin/env sh
 
 function handle-popup {
     if [[ $1 == "openwindow"*",popup-"* ]]; then
