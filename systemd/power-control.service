@@ -1,0 +1,7 @@
+[Service]
+ExecStart=/home/ark/.local/bin/power-control start
+Restart=always
+RestartSec=3s
+
+[Install]
+WantedBy=default.target

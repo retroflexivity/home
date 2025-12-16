@@ -20,10 +20,10 @@ fi
 save_addr "$1"
 addr=$1
 
-declare -a dirs=("Articles" "Books" "Misc reading")
+declare -a dirs=("articles" "books")
 
 for d in "${dirs[@]}"
 do
     echo cloning "$d" to "$addr"
-    rclone sync $d koob:/mnt/onboard/$d --sftp-host $addr --exclude "*.sdr/**" --no-update-modtime --verbose
+    rclone sync $d koob:/mnt/onboard/$d --sftp-host $addr --exclude "*.sdr/**" --exclude ".git/**" --no-update-modtime --verbose
 done

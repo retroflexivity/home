@@ -1,0 +1,15 @@
+#! /usr/bin/env nu
+
+let actions = {
+  "lock screen": {(lockscreen)}
+  "logout": {(logout)}
+  "suspend": {(systemctl suspend)}
+  "power off": {(poweroff)}
+  "reboot": {(reboot)}
+  "set power mode": {(power-control rofi-profile)}
+}
+
+def main [] {
+  let res = $actions | columns | to text | rofi -dmenu -p "power"
+  do ($actions | get $res)
+}

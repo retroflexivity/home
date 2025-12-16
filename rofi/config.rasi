@@ -4,6 +4,7 @@ configuration {
 
 	ssh-command: "{terminal} --hold -e {ssh-client} {host} [-p {port}]";
 	run-shell-command: "{terminal} --hold {cmd}";
+	run-command: "{cmd}";
 
 	combi-modes: "run,drun";
 	combi-display-format: "{text}";
@@ -32,9 +33,8 @@ configuration {
 /*	xoffset: 0;*/
 /*	fixed-num-lines: true;*/
 /*	show-icons: false;*/
-/*	terminal: "rofi-sensible-terminal";*/
+	terminal: "kitty";
 /*	ssh-client: "ssh";*/
-/*	run-command: "{cmd}";*/
 /*  run-list-command: "{cmd}"; */
 /*	window-command: "wmctrl -i -R {window}";*/
 /*	window-match-fields: "all";*/

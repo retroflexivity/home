@@ -1,6 +1,6 @@
 #!/usr/bin/zsh
 
-declare -a dirs=("Articles" "Documents")
+declare -a dirs=("Documents")
 
 for d in "${dirs[@]}"
 do

@@ -6,6 +6,7 @@
 "dunstrc" = "~/.config/dunst/dunstrc"
 "hypr" = "~/.config/hypr"
 "kitty" = "~/.config/kitty"
+"qutebrowser" = "~/.config/qutebrowser"
 "sioyek" = "~/.config/sioyek"
 "papis" = { target = "~/.config/papis", type = "symbolic" }
 "wl-kbptr" = "~/.config/wl-kbptr"
@@ -15,6 +16,7 @@
 "rofi-rbw.rc" = "~/.config/rofi-rbw.rc"
 "walker" = "~/.config/walker"
 "waybar" = "~/.config/waybar"
+"wob" = "~/.config/wob"
 "systemd" = "~/.config/systemd/user"
 "v2raya.json" = "~/.config/v2raya/current-config.json"
 "tridactyl" = "~/.config/tridactyl"
@@ -24,6 +26,7 @@
 "keyd.conf" = "/etc/keyd/keyd.conf"
 "kmonad" = "/etc/kmonad"
 "logind.conf" = "/etc/systemd/logind.conf"
+"ly/config.ini" = "/etc/ly/config.ini"
 "fish" = "~/.config/fish"
 ".zshrc" = "~/.zshrc"
 

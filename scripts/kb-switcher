@@ -1,7 +1,7 @@
 #!/usr/bin/zsh
 
 DEVICE="main"
-WAIT_MS=800
+WAIT_MS=600
 
 # layout order
 # los[1] is the current layout, subsequent are chronologically ordered

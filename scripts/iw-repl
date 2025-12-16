@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 
+iwctl station wlan0 scan > /dev/null
 iwctl station wlan0 get-networks
 
 fish --init-command="function iwr --on-event fish_prompt

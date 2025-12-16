@@ -1,0 +1,133 @@
+#! /usr/bin/env nu
+
+$env.config.recursion_limit = 1000
+
+const low_threshold = 20
+const warning_thresholds = [20 10]
+
+def notify [title: string message: string --critical] {
+  let urg = if $critical {'--urgency critical'} else {''}
+  notify-send -h string:dunst-stack-tag:batt $title $message
+}
+
+def bat-val-file [val: string] {
+  ls /sys/class/power_supply/BAT* | first | get name | path join $val
+}
+def bat-val [val: string] {
+  bat-val-file $val | open --raw  
+}
+
+const auto_file = '/tmp/power-profile-auto'
+def set-auto [value: bool] {
+  $value o> $auto_file
+}
+
+
+def status [] {bat-val status}
+def capacity [] {bat-val capacity | into int}
+def profile [] {powerprofilesctl get}
+def auto [] {$auto_file | open --raw | into bool}
+
+def current [] {
+  {
+    profile: (profile)
+    status: (status)
+    capacity: (capacity)
+    auto: (auto)
+  }
+}
+
+const profiles = {
+  auto: auto
+  ac: performance
+  bat: balanced
+  low-bat: power-saver
+}
+
+def get-profile [] {
+  $profiles | get (
+    if (status | str starts-with "Ch") {
+      "ac"
+    } else if (capacity) > $low_threshold {
+      "bat"
+    } else {
+      "low-bat"
+    }
+  )
+}
+
+def check-auto [prev: record] {
+  if (auto) and ($prev.profile != 0) and ((profile) != $prev.profile) {
+    notify "manual power control" "automatic power profile switching is off"
+    set-auto false
+  }
+}
+
+def set-profile [] {
+  if (auto) {
+    powerprofilesctl set (get-profile)
+  }
+}
+
+def send-warning [prev: record --instant] {
+  if ((status) == "Discharging") and ($warning_thresholds | any {|wt| ($wt > $prev.capacity) and ($wt <= (capacity))}) {
+    if $instant {
+      notify "low battery" $"the battery is (capacity)" --critical
+    } else {
+      wait 0.5sec
+      send-warning $prev --instant
+    }
+  }
+}
+
+def watch-for-changes [prev: record] {
+  loop {
+    sleep 0.2sec
+    if (current) != $prev {
+      print (current)
+      print $prev
+      break
+    }
+  }
+}
+
+def run [prev: record] {
+  print "checking auto"
+  check-auto $prev
+
+  print "setting profile"
+  set-profile
+
+  print "sending warning"
+  send-warning $prev
+
+  print "setting prev"
+  let prev = current
+
+  print $prev
+  print "waiting"
+  watch-for-changes $prev
+  run $prev
+}
+
+def "main start" [] {
+  set-auto true
+  print "started"
+  loop {run {
+    profile: 0
+    status: Discharging
+    capacity: 100
+  }}
+}
+
+def "main rofi-profile" [] {
+  let res = $profiles | values | to text | rofi -dmenu -p "set power mode"
+  if $res == "auto" {
+    set-auto true
+  } else {
+    powerprofilesctl set $res
+  }
+}
+
+def main [] {
+}

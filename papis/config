@@ -6,8 +6,8 @@ dir = /home/ark/articles
 
 formatter = jinja2
 ref-format = {{ (doc.author_list | first).family | lower}}{{ doc.year }}{{ doc.title | lower | replace(" the ", " ") | replace(" a ", " ") | replace(" and ", " ") | replace(" as ", " ") | replace(" of ", " ") | replace(" for ", " ") | replace(" to ", " ") | replace(" in ", " ") | replace(" at ", " ") | truncate(40) }}
-add-folder-name = {{ doc.author_list | join("-", attribute="family") | default("Unauthored", true) | lower }}-{{ doc.year }}
-add-file-name = {%% if (doc.author_list | length) > 2 %%}{{ (doc.author_list | first).family }} et al.{%% else %%}{{ doc.author_list | join(" and ", attribute="family") | default("Unauthored", true) }}{%% endif %%} {{ doc.year }}. {{ doc.shorttitle | default(doc.title, true) }}
+add-folder-name = {{ doc.author_list | join("-", attribute="family") | replace(" ", "-") | default("Unauthored", true) | lower }}-{{ doc.year | replace(" ", "-") | replace(".", "") }}
+add-file-name = {%% if (doc.author_list | length) > 2 %%}{{ (doc.author_list | first).family }} et al.{%% else %%}{{ doc.author_list | join(" and ", attribute="family") | default("Unauthored", true) }}{%% endif %%} {{ doc.year | replace(".", "") }}. {{ doc.shorttitle | default(doc.title, true) }}
 doc-paths-lowercase = false
 doc-paths-extra-chars = " ()‐\-_"
 doc-paths-word-separator = 

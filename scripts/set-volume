@@ -1,0 +1,25 @@
+#!/usr/bin/env sh
+
+print () {
+  if [ -z "$1" ]; then
+    vol=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2}' | tr -d '.' )
+  else
+    vol=$1
+  fi
+  echo $vol >/run/user/1000/wob.sock
+}
+
+if [ $1 == "up" ]; then
+  case $(wpctl get-volume @DEFAULT_AUDIO_SINK@) in
+    *"[MUTED]") wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; print ;;
+    *) wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+; print ;;
+  esac
+elif [ $1 == "down" ]; then
+  case $(wpctl get-volume @DEFAULT_AUDIO_SINK@) in
+    *"[MUTED]") wpctl set-volume @DEFAULT_AUDIO_SINK@ 0; wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; print ;;
+    *) wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-; print ;;
+  esac
+elif [ $1 == "mute" ]; then
+  echo mute
+  wpctl set-mute @DEFAULT_AUDIO_SINK@ 1; print 0 
+fi

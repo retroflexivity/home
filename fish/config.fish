@@ -1,4 +1,4 @@
-fish_add_path $HOME/.local/bin /usr/local/texlive/2024/bin/x86_64-linux $HOME/.ghcup/bin $HOME/.cabal/bin
+fish_add_path $HOME/.local/bin /usr/local/texlive/2024/bin/x86_64-linux $HOME/.ghcup/bin $HOME/.cabal/bin $HOME/.roswell/bin
 
 set -x PYTHONWARNINGS ignore
 
@@ -28,6 +28,7 @@ if status is-interactive
     abbr -a ts trash-put
 
     abbr -a cat bat
+    abbr -a h "helix ."
     abbr -a hx helix
     abbr -a se sudoedit
 
@@ -43,7 +44,16 @@ if status is-interactive
     abbr -a lxm "rm *-tags.tex; latexmk; rm *-tags.tex"
     abbr -a lxmc "latexmk -c"
 
-    abbr -a cex "calibredb export --dont-write-opf --dont-save-cover --dont-asciiize --single-dir --to-dir Books"
+    abbr -a pa papis
+    abbr -a pal "papis list"
+    abbr -a palt "papis list toread"
+    abbr -a paa "papis add"
+    abbr -a paad "papis add --from doi"
+    abbr -a paal "papis add --from lingbuzz"
+    abbr -a paf "papis addto -f"
+    abbr -a pat "papis tag -p toread"
+    abbr -a patr "papis tag -r toread"
+    abbr -a pae "papis edit"
 
     bind ctrl-y fish_clipboard_copy
 end

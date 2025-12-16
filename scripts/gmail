@@ -1,3 +1,0 @@
-#!/usr/bin/zsh
-
-zen-browser --new-window mail.google.com
