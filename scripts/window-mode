@@ -1,7 +1,5 @@
 #!/usr/bin/zsh
 
-echo "lfg" >> /home/ark/win-log
-
 if [[ $1 == "prev" ]] && [[ -f /tmp/prev-submap ]]; then
   submap=$(< /tmp/prev-submap)
   if [[ $submap == "default" ]]; then
@@ -11,10 +9,8 @@ else
   submap=$1
 fi
 
-echo $submap >> /home/ark/win-log
 
-
-hyprctl submap | head -1 > /tmp/prev-submap 2>>/home/ark/win-log
+hyprctl submap | head -1 > /tmp/prev-submap
 
 declare -A bordercolors
 bordercolors=(
@@ -31,4 +27,3 @@ hyprctl keyword group:groupbar:col.active $bordercolors[$submap]
 hyprctl keyword general:col.active_border $bordercolors[$submap]
 hyprctl keyword group:col.border_active $bordercolors[$submap]
 hyprctl dispatch submap $submap
-echo "success" >> /home/ark/win-log
