@@ -12,7 +12,7 @@ language-servers = ["pylsp"]
 [language-server.pylsp.config.pylsp]
 plugins.pylsp_mypy.enabled = true
 plugins.pylsp_mypy.live_mode = true
-
+plugins.pycodestyle = {enabled = true, ignore = ["W503", "E501"]}
 
 # TYPST
 [language-sevrevr.tinymist]
