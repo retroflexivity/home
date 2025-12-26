@@ -1,0 +1,43 @@
+#!/usr/bin/env nu
+
+let history_dir = (test -n "$XDG_DATA_HOME"; and echo "$XDG_DATA_HOME"; or echo "$HOME/.local/share") + "/rofi-finder"
+let history_file = $"(history_dir)/history.csv"
+
+def read_history []: path -> table {
+  open $history_file -r | from csv -n --no-infer
+}
+
+def update_history [
+  path: string
+  type: string
+]: table -> table {
+  $in | where { $it.column1 != $path } | prepend {"column0": $type, "column1": $path} | first 25
+}
+
+def write_history [history_file: path]: table -> nothing {
+  $in | to csv -n o> $history_file
+}
+
+
+def parse_type []: string -> list {
+  $in | split row ","
+}
+
+def get_results [dir: path, type: string] {
+  ls dir **/* | where { $it.type } 
+}
+
+
+def main [
+  --stdout (-o)
+  --type (-t): string = "dir,file"
+  --mult (-m)
+  dir: path = "~"
+] {
+
+  let rofi_mult = if $mult { "-multi-select" } else { "" } 
+  
+  mkdir $history_dir
+
+  
+}
