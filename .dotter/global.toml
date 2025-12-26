@@ -6,7 +6,7 @@
 "dunstrc" = "~/.config/dunst/dunstrc"
 "hypr" = "~/.config/hypr"
 "kitty" = "~/.config/kitty"
-"qutebrowser" = "~/.config/qutebrowser"
+"qutebrowser/config.py" = "~/.config/qutebrowser/config.py"
 "sioyek" = "~/.config/sioyek"
 "papis" = { target = "~/.config/papis", type = "symbolic" }
 "wl-kbptr" = "~/.config/wl-kbptr"
