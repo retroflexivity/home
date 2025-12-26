@@ -1,14 +1,15 @@
 theme = "term"
 
 [editor]
-"scrolloff" = 5
-"popup-border" = "menu"
-"continue-comments" = false
-"jump-label-alphabet" = "arstneiodhqwfpgjluyzxcvbkm"
+default-yank-register = "+"
+scrolloff = 5
+popup-border = "menu"
+continue-comments = false
+jump-label-alphabet = "arstneiodhqwfpgjluyzxcvbkm"
 
 [editor.auto-save]
-"after-delay.enable" = true
-"after-delay.timeout" = 10000
+after-delay.enable = true
+after-delay.timeout = 10000
 
 [editor.soft-wrap]
 "enable" = true
@@ -40,21 +41,27 @@ ret = ["open_below", "normal_mode"]
 "'" = "flip_selections"
 
 D = "kill_to_line_end"
-H = "extend_to_line_start"
+M = "extend_to_line_start"
 I = "extend_to_line_end"
 
 # invert pasting behaviour
 p = "paste_before"
 P = "paste_after"
 
+# do not yank when deleting / changing
+d = "delete_selection_noyank"
+c = "change_selection_noyank"
+
 # make selecting to prev occurence of char more convenient
 f = "till_prev_char"
 T = "find_next_char"
 
 # layout changes
+m = "move_char_left"
 n = "move_visual_line_down"
 e = "move_visual_line_up"
 i = "move_char_right"
+
 
 k = "move_next_word_end"
 K = "move_next_long_word_end"
@@ -73,6 +80,15 @@ J = "search_prev"
 N = "join_selections"
 # --------------
 
+#layout changes
+[keys.normal.h]
+h = "match_brackets"
+s = "surround_add"
+r = "surround_replace"
+d = "surround_delete"
+a = "select_textobject_around"
+i = "select_textobject_inner"
+
 [keys.normal.z]
 # layout changes
 n = "scroll_down"
@@ -84,7 +100,7 @@ k = "no_op"
 [keys.normal.g]
 # layout changes
 k = "goto_last_line"
-h = "goto_line_start"
+m = "goto_line_start"
 i = "goto_line_end"
 l = "goto_implementation"
 j = "goto_next_buffer"
@@ -98,8 +114,11 @@ n = "jump_view_down"
 C-n = "jump_view_down"
 e = "jump_view_up"
 C-e = "jump_view_up"
+m = "jump_view_left"
+C-m = "jump_view_left"
 i = "jump_view_right"
 C-i = "jump_view_right"
+M = "swap_view_left"
 N = "swap_view_down"
 E = "swap_view_up"
 I = "swap_view_right"
@@ -128,19 +147,20 @@ P = "paste_clipboard_after"
 ";" = "command_mode"
 "'" = "flip_selections"
 
-# invert pasting behaviour
-p = "paste_before"
-P = "paste_after"
-
 D = "kill_to_line_end"
-H = "extend_to_line_start"
+M = "extend_to_line_start"
 I = "extend_to_line_end"
+
+# do not yank when deleting / changing
+d = "delete_selection_noyank"
+c = "change_selection_noyank"
 
 # make selecting to prev occurence of char more convenient
 f = "till_prev_char"
 T = "find_next_char"
 
 # layout changes
+m = "extend_char_left"
 n = "extend_visual_line_down"
 e = "extend_visual_line_up"
 i = "extend_char_right"
@@ -160,6 +180,18 @@ j = "extend_search_next"
 J = "extend_search_prev"
 
 N = "join_selections"
+
+# --------------
+
+#layout changes
+[keys.select.h]
+h = "match_brackets"
+s = "surround_add"
+r = "surround_replace"
+d = "surround_delete"
+a = "select_textobject_around"
+i = "select_textobject_inner"
+
 # --------------
 
 [keys.select.z]
@@ -172,6 +204,7 @@ k = "no_op"
 
 [keys.select.g]
 # layout changes
+m = "extend_to_line_start"
 k = "extend_to_last_line"
 i = "extend_to_line_end"
 l = "goto_implementation"
@@ -182,12 +215,15 @@ e = "select_line_above"
 
 [keys.select.C-w]
 # layout changes
+m = "jump_view_left"
+C-m = "jump_view_left"
 n = "jump_view_down"
 C-n = "jump_view_down"
 e = "jump_view_up"
 C-e = "jump_view_up"
 i = "jump_view_right"
 C-i = "jump_view_right"
+M = "swap_view_left"
 N = "swap_view_down"
 E = "swap_view_up"
 I = "swap_view_right"
