@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+nmcli device wifi list
+
+fish --init-command="function nmr --on-event fish_prompt
+    commandline -i 'nmcli device wifi '
+end
+"
