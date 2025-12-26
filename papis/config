@@ -15,4 +15,6 @@ ref-word-separator =
 header-format = <ansired>{{ doc.title | escape }}</ansired>
   <ansired>{{ doc.author | escape }}</ansired>
   <ansiblue>({{ doc.year | escape }})</ansiblue> <ansiyellow>{{ doc.tags | join(", ") | escape }}</ansiyellow>
-match-format = {{ doc.tags }}{{ doc.subfolder }}{{ doc.title }}{{ doc.author }}{{ doc.year }}
+match-format = {{ doc.tags }}{{ doc.subfolder }}{{ doc.title }}{{ doc.author }}{{ doc.year }}{{ doc.ref }}
+
+notes-name = notes.md
