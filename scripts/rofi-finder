@@ -23,7 +23,7 @@ set history_dir "$data_dir/rofi-finder"
 if set -ql _flag_d
     set history_file "$history_dir/history-d"
 else
-    set history_file "$history_dir/history"
+    set history_file "$history_dir/history-f"
 end
 mkdir -p "$history_dir"
 
