@@ -62,9 +62,9 @@
 (deflayer colemak
   esc  back refresh f11 pp ssrq brdn brup mute volumedown volumeup @gam  
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  tab  q    w    f    p    g    j    @lsf @uct @yal @:me [    ]    \
-  esc  @ame @ral @sct @tsf d    h    n    e    i    o    '    ret
-  home z    x    c    v    b    k    m    ,    .    /   home
+  tab  q    w    f    p    b    j    @lsf @uct @yal @:me [    ]    \
+  esc  @ame @ral @sct @tsf g    m    n    e    i    o    '    ret
+  home z    x    c    d    v    k    h    ,    .    /   home
   lctl ins            @_fn           @loa comp
 )
 
@@ -80,8 +80,8 @@
 (deflayer gaming
   slck f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  @xgm
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  tab  q    w    f    p    g    j    l    u    y    ;    [    ]    \
-  esc  a    r    s    t    d    h    n    e    i    o    '    ret
-  lsft z    x    c    v    b    k    m    ,    .    /   slck
+  tab  q    w    f    p    b    j    l    u    y    ;    [    ]    \
+  esc  a    r    s    t    g    m    n    e    i    o    '    ret
+  lsft z    x    c    d    v    k    h    ,    .    /   slck
   lctl lalt           spc            ralt @_fn
 )
