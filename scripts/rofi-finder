@@ -68,9 +68,9 @@ def main [
   
   match $output.exit_code {
     0 => (if $stdout {
-          $dir | path join $pick | print
+          $dir | path join $pick | str trim | print
         } else {
-          $pick | xargs | xdg-open $in # idk what's the problem but xargs fixes it
+          $pick | str trim | xdg-open $in
         }),
     10 => (main --type=($type) --mult=($mult) $pick)
     11 => (copy-file $pick)
