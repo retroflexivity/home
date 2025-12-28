@@ -31,10 +31,10 @@ c.downloads.location.prompt = False
 
 c.editor.command = ['kitty', 'helix', '{file}', '+{line}']
 
-c.fileselect.folder.command = ['rofi-finder', '-o', '--type="dir"' '2>/dev/null']
+c.fileselect.folder.command = ['sh', '-c', 'rofi-finder -o --type="dir" 2>/dev/null']
 c.fileselect.handler = 'external'
-c.fileselect.multiple_files.command = ['rofi-finder', '-om', '2>/dev/null']
-c.fileselect.single_file.command = ['rofi-finder', '-o', '2>/dev/null']
+c.fileselect.multiple_files.command = ['sh', '-c', 'rofi-finder -om 2>/dev/null']
+c.fileselect.single_file.command = ['sh', '-c', 'rofi-finder -o 2>/dev/null']
 
 c.hints.chars = 'arstneio'
 
