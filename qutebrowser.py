@@ -31,7 +31,7 @@ c.downloads.location.prompt = False
 
 c.editor.command = ['kitty', 'helix', '{file}', '+{line}']
 
-c.fileselect.folder.command = ['rofi-finder', '-od', '2>/dev/null']
+c.fileselect.folder.command = ['rofi-finder', '-o', '--type="dir"' '2>/dev/null']
 c.fileselect.handler = 'external'
 c.fileselect.multiple_files.command = ['rofi-finder', '-om', '2>/dev/null']
 c.fileselect.single_file.command = ['rofi-finder', '-o', '2>/dev/null']

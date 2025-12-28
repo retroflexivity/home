@@ -1,60 +1,82 @@
-#!/usr/bin/env fish
+#!/usr/bin/env nu
 
-argparse o/stdout d/dirs m/mult -- $argv
+let history_dir = (if "$XDG_DATA_HOME" in $env { $env.XDG_DATA_HOME } else { $env.HOME | path join ".local/share" }) | path join "rofi-finder"
+let history_file = $history_dir | path join "history"
 
-if set -ql _flag_d
-    set ftype d
-else
-    set ftype f
-end
+def read_history [history_file: path]: nothing -> list {
+  mkdir $history_dir
 
-if set -ql _flag_m
-    set rmult -multi-select
-end
+  if ($history_file | path exists) {
+    open $history_file -r | lines
+  } else {
+    []
+  }
+}
 
-if set -ql $argv
-    cd $argv[1]
-else
-    cd ~
-end
+def update_history [path: string]: list -> list {
+  $in | | prepend $path | uniq | first 100
+}
 
-set data_dir $(test -n "$XDG_DATA_HOME"; and echo "$XDG_DATA_HOME"; or echo "$HOME/.local/share")
-set history_dir "$data_dir/rofi-finder"
-if set -ql _flag_d
-    set history_file "$history_dir/history-d"
-else
-    set history_file "$history_dir/history-f"
-end
-mkdir -p "$history_dir"
+def write_history [history_file: path]: list -> nothing {
+  $in | save -f $history_file
+}
 
-function update_history
-    set filename $argv[1]
-    set temp_file (mktemp)
-    echo "$filename" >"$temp_file"
-    grep -v "^$filename\$" "$history_file" 2>/dev/null | head -n 24 >>"$temp_file"
-    mv "$temp_file" "$history_file"
-end
 
-set res $(
-    begin
-        for file in $(cat $history_file)
-            test -e $file; and echo $file
-        end
-        find * -not -path "*/.*" -type $ftype -print
-    end | rofi -dmenu -i $rmult -kb-custom-1 "Alt+c" -p "open"
-)
+def parse_type [ type: string ]: nothing -> closure {
+  if ($type == "file") {
+    { $in.type == "file" }
+  } else if ($type == "dir") {
+    { $in.type == "dir" }
+  } else if ($type == "") {
+    { true }
+  } else {
+    error make {msg: $"Invalid type ($type)"}
+  }
+}
 
-switch $status
-    case 0
-        if set -ql _flag_o
-            printf "$(pwd)/%s\n" $res
-        else
-            xdg-open $res
-        end
-    case 10
-        copy-file $res
-end
+def get_results [dir: path, type_cond: closure]: nothing -> table {
+  ls **/* | where {do $type_cond }
+}
 
-if test $status -eq 0
-    update_history $res
-end
+
+def main [
+  --stdout (-o)
+  --type (-t): string = ""
+  --mult (-m)
+  dir: path = "."
+] {
+
+  # switch to the dir because globs are not expanded with vars
+  cd $dir
+  let dir = pwd
+
+  let rofi_mult = if $mult { "-multi-select" } else { "" } 
+  
+  let history = read_history $history_file
+    # history has full paths; we're trimming them
+    | where { str starts-with (pwd) } | str replace ((pwd) + "/") ""
+    | where { do (parse_type $type) }
+  
+  
+  let output = get_results $dir (parse_type $type) | get "name"
+    | where { not ($in in $history) } | prepend $history
+    | to text
+    | rofi -dmenu -i $rofi_mult -kb-custom-1 "Alt+n" -kb-custom-2 "Alt+c" -kb-custom-3 "Alt+e" -p "open"
+    | complete
+
+  let pick = $output.stdout
+  
+  match $output.exit_code {
+    0 => (if $stdout {
+          $dir | path join $pick | print
+        } else {
+          $pick | xargs | xdg-open $in # idk what's the problem but xargs fixes it
+        }),
+    10 => (main --type=($type) --mult=($mult) $pick)
+    11 => (copy-file $pick)
+  }
+
+  if $output.exit_code in [0, 11] {
+    read_history $history_file | update_history (pwd | path join $pick) | write_history $history_file
+  }
+}

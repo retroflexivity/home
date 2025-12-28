@@ -1,0 +1,60 @@
+#!/usr/bin/env fish
+
+argparse o/stdout d/dirs m/mult -- $argv
+
+if set -ql _flag_d
+    set ftype d
+else
+    set ftype f
+end
+
+if set -ql _flag_m
+    set rmult -multi-select
+end
+
+if set -ql $argv
+    cd $argv[1]
+else
+    cd ~
+end
+
+set data_dir $(test -n "$XDG_DATA_HOME"; and echo "$XDG_DATA_HOME"; or echo "$HOME/.local/share")
+set history_dir "$data_dir/rofi-finder"
+if set -ql _flag_d
+    set history_file "$history_dir/history-d"
+else
+    set history_file "$history_dir/history-f"
+end
+mkdir -p "$history_dir"
+
+function update_history
+    set filename $argv[1]
+    set temp_file (mktemp)
+    echo "$filename" >"$temp_file"
+    grep -v "^$filename\$" "$history_file" 2>/dev/null | head -n 24 >>"$temp_file"
+    mv "$temp_file" "$history_file"
+end
+
+set res $(
+    begin
+        for file in $(cat $history_file)
+            test -e $file; and echo $file
+        end
+        find * -not -path "*/.*" -type $ftype -print
+    end | rofi -dmenu -i $rmult -kb-custom-1 "Alt+c" -p "open"
+)
+
+switch $status
+    case 0
+        if set -ql _flag_o
+            printf "$(pwd)/%s\n" $res
+        else
+            xdg-open $res
+        end
+    case 10
+        copy-file $res
+end
+
+if test $status -eq 0
+    update_history $res
+end
