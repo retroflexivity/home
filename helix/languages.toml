@@ -15,7 +15,7 @@ plugins.pylsp_mypy.live_mode = true
 plugins.pycodestyle = {enabled = true, ignore = ["W503", "E501"]}
 
 # TYPST
-[language-sevrevr.tinymist]
+[language-server.tinymist]
 command = "tinymist"
 
 [[language]]
