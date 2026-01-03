@@ -22,13 +22,12 @@
 "tridactyl" = "~/.config/tridactyl"
 "scripts" = "~/.local/bin"
 "popups" = "~/.local/bin"
-"zsh-functions" = "~/.config/zsh-functions"
 "keyd.conf" = "/etc/keyd/keyd.conf"
 "kmonad" = "/etc/kmonad"
 "logind.conf" = "/etc/systemd/logind.conf"
 "ly/config.ini" = "/etc/ly/config.ini"
 "fish" = "~/.config/fish"
-".zshrc" = "~/.zshrc"
+"mimeapps.list" = "~/.config/mimeapps.list"
 "applications" = "~/.local/share/applications/usr"
 
 [default.variables]
