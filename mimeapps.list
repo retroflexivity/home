@@ -1,0 +1,21 @@
+[Default Applications]
+application/djvu=sioyek.desktop;
+application/epub=sioyek.desktop;
+application/pdf=sioyek.desktop;
+application/vnd.openxmlformats-officedocument.wordprocessingml.document=sioyek.desktop;
+
+text/*=helix.desktop;
+application/xhtml+xml=helix.desktop;
+application/x-*script=helix.desktop;
+application/toml=helix.desktop;
+
+application/x-extension-*htm*=qutebrowser.desktop;
+
+image/*=org.gnome.gThumb.desktop;
+
+x-scheme-handler/chrome=org.qutebrowser.qutebrowser.desktop;
+x-scheme-handler/http*=org.qutebrowser.qutebrowser.desktop;
+x-scheme-handler/tg=userapp-AyuGram Desktop-ISCB32.desktop;userapp-AyuGram Desktop-XSFR92.desktop;
+x-scheme-handler/tonsite=userapp-AyuGram Desktop-483O72.desktop;userapp-AyuGram Desktop-6YRS92.desktop;
+
+inode/directory=kitty.desktop
