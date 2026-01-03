@@ -72,8 +72,8 @@
   esc  XX   XX   XX   XX   XX   bldn blup XX   XX   XX   @gam
   XX   f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  del
   XX   XX   XX   tab  ret  XX   XX   _    _    _    _    XX   XX   XX
-  caps _    _    @wct @xsf del  lft  down up   rght XX   XX   XX
-  XX   XX   bspc XX   XX   XX   home pgdn pgup end  XX   XX
+  caps _    _    @wct @xsf XX   lft  down up   rght XX   XX   XX
+  XX   XX   bspc del  XX   XX   home pgdn pgup end  XX   XX
   XX   XX             XX             XX   XX  
 )
 
