@@ -49,7 +49,6 @@ if status is-interactive
     abbr -a palt "papis list toread"
     abbr -a paa "papis add"
     abbr -a paad "papis add --from doi"
-    abbr -a paal "papis add --from lingbuzz"
     abbr -a paf "papis addto -f"
     abbr -a pat "papis tag -p toread"
     abbr -a patr "papis tag -r toread"
