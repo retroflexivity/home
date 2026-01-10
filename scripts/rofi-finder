@@ -10,11 +10,12 @@ def read_history [history_file: path]: nothing -> list {
     open $history_file -r | lines
   } else {
     []
+
   }
 }
 
 def update_history [path: string]: list -> list {
-  $in | | prepend $path | uniq | first 100
+  $in | prepend $path | uniq | first 100
 }
 
 def write_history [history_file: path]: list -> nothing {
@@ -38,6 +39,9 @@ def get_results [dir: path, type_cond: closure]: nothing -> table {
   ls **/* | where {do $type_cond }
 }
 
+def format_path [parent: path]: string -> string {
+  do {|$child| $parent | path join $child | str trim} $in
+}
 
 def main [
   --stdout (-o)
@@ -68,15 +72,15 @@ def main [
   
   match $output.exit_code {
     0 => (if $stdout {
-          $dir | path join $pick | str trim | print
+          $pick | format_path $dir | print
         } else {
-          $pick | str trim | xdg-open $in
+          $pick | format_path $dir | xdg-open $in
         }),
     10 => (main --type=($type) --mult=($mult) $pick)
     11 => (copy-file $pick)
   }
 
   if $output.exit_code in [0, 11] {
-    read_history $history_file | update_history (pwd | path join $pick) | write_history $history_file
+    read_history $history_file | update_history ($pick | format_path (pwd)) | write_history $history_file
   }
 }
