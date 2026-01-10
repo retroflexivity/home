@@ -31,15 +31,11 @@ hyprctl keyword group:groupbar:col.active $bordercolor
 hyprctl keyword general:col.active_border $bordercolor
 hyprctl keyword group:col.border_active $bordercolor
 
-make new windows open in group when in insert mode
-outside otherwise
-if [[ $submap == "insert" ]]; then
-  # barred off doesn't work for a reason
-  hyprctl keyword windowrule "match:class .*, group invade on"
-  hyprctl keyword windowrule "match:class .*, group invade off"
-  echo barred off
-else
-  hyprctl keyword windowrule "match:class .*, group barred on"
-  echo barred on
-fi
+# make new windows open in group when in insert mode
+# outside otherwise
+# if [[ $submap == "insert" ]]; then
+#   hyprctl keyword group:auto_group true
+# else
+#   hyprctl keyword group:auto_group false
+# fi
   
