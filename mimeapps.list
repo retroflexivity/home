@@ -1,6 +1,7 @@
 [Default Applications]
 application/djvu=sioyek.desktop;
 application/epub=sioyek.desktop;
+application/epub+zip=sioyek.desktop;
 application/pdf=sioyek.desktop;
 application/vnd.openxmlformats-officedocument.wordprocessingml.document=sioyek.desktop;
 
