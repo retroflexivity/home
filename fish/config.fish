@@ -55,4 +55,17 @@ if status is-interactive
     abbr -a pae "papis edit"
 
     bind ctrl-y fish_clipboard_copy
+
+    function disown_and_exit
+        # Disown all jobs
+        for job in (jobs -p)
+            disown $job
+        end
+
+        # Get the parent terminal process and kill it
+        kill (ps -o ppid= -p $fish_pid | string trim)
+    end
+
+    bind \cq disown_and_exit
+
 end
