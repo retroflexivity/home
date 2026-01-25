@@ -20,6 +20,7 @@ if status is-interactive
     abbr -a f "find 2>/dev/null . -name"
     abbr -a fr "sudo find 2>/dev/null / -name"
 
+    abbr -a b qutebrowser
     abbr -a o open
 
     abbr -a c wl-copy
