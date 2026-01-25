@@ -4,6 +4,32 @@ config = config  # noqa: F821 pylint: disable=E0602,C0103
 
 config.load_autoconfig(False)
 
+# colors
+bg = "#f7f7f7"
+fg = "#2b2b2b"
+darker_bg = "#f2f2f2"
+light_fg = bg
+
+red = "#bd4e46"
+red_bg = "#944540"
+
+green = "#46bd80"
+green_bg = "#409168"
+
+yellow = "#b3a430"
+yellow_bg = "#9e9336"
+
+blue = "#4695bd"
+blue_bg = "#45748c"
+
+magenta = "#a64eb5"
+magenta_bg = "#814c8a"
+
+cyan = "#46b5bd"
+cyan_bg = "#428085"
+
+accent = red
+
 # c.aliases = {'w': 'session-save', 'q': 'close', 'qa': 'quit', 'wq': 'quit --save', 'wqa': 'quit --save'}
 # c.auto_save.interval = 15000
 
@@ -31,10 +57,10 @@ c.downloads.location.prompt = False
 
 c.editor.command = ['kitty', 'helix', '{file}', '+{line}']
 
-c.fileselect.folder.command = ['sh', '-c', 'rofi-finder -o --type="dir" 2>/dev/null']
+c.fileselect.folder.command = ['sh', '-c', 'rofi-finder ~ -o --type="dir" 2>/dev/null']
 c.fileselect.handler = 'external'
-c.fileselect.multiple_files.command = ['sh', '-c', 'rofi-finder -om 2>/dev/null']
-c.fileselect.single_file.command = ['sh', '-c', 'rofi-finder -o 2>/dev/null']
+c.fileselect.multiple_files.command = ['sh', '-c', 'rofi-finder ~ -om 2>/dev/null']
+c.fileselect.single_file.command = ['sh', '-c', 'rofi-finder ~ -o 2>/dev/null']
 
 c.hints.chars = 'arstneio'
 
@@ -126,3 +152,78 @@ config.bind('<Ctrl-E>', 'edit-text', mode='insert')
 config.bind('<Escape>', 'mode-leave', mode='insert')
 config.bind('<Shift-Escape>', 'fake-key <Escape>', mode='insert')
 config.bind('<Shift-Ins>', 'insert-text -- {primary}', mode='insert')
+
+
+c.colors.completion.category.bg = bg
+c.colors.completion.category.border.top = 'transparent'
+c.colors.completion.category.border.bottom = 'transparent'
+c.colors.completion.category.fg = fg
+
+c.colors.completion.scrollbar.bg = bg
+c.colors.completion.scrollbar.fg = fg
+
+c.colors.completion.even.bg = bg
+c.colors.completion.odd.bg = bg
+c.colors.completion.fg = fg
+c.colors.completion.match.fg = accent
+
+c.colors.completion.item.selected.bg = darker_bg
+c.colors.completion.item.selected.fg = fg
+c.colors.completion.item.selected.border.top = 'transparent'
+c.colors.completion.item.selected.border.bottom = 'transparent'
+c.colors.completion.item.selected.match.fg = accent
+
+c.colors.statusbar.normal.bg = bg
+c.colors.statusbar.normal.fg = fg
+c.colors.statusbar.command.bg = bg
+c.colors.statusbar.command.fg = fg
+c.colors.statusbar.caret.bg = magenta_bg
+c.colors.statusbar.caret.fg = light_fg
+c.colors.statusbar.caret.selection.bg = magenta_bg
+c.colors.statusbar.caret.selection.fg = light_fg
+c.colors.statusbar.insert.bg = green_bg
+c.colors.statusbar.insert.fg = light_fg
+c.colors.statusbar.passthrough.bg = blue_bg
+c.colors.statusbar.passthrough.fg = light_fg
+c.colors.statusbar.progress.bg = fg
+c.colors.statusbar.url.fg = fg
+c.colors.statusbar.url.success.https.fg = fg
+c.colors.statusbar.url.success.http.fg = yellow
+c.colors.statusbar.url.warn.fg = yellow
+c.colors.statusbar.url.error.fg = red
+c.colors.statusbar.url.hover.fg = cyan
+c.colors.statusbar.private.bg = fg
+c.colors.statusbar.private.fg = bg
+
+c.colors.downloads.bar.bg = bg
+c.colors.downloads.error.bg = red_bg
+c.colors.downloads.error.fg = light_fg
+c.colors.downloads.start.bg = green_bg
+c.colors.downloads.start.fg = light_fg
+c.colors.downloads.stop.bg = blue_bg
+c.colors.downloads.stop.fg = light_fg
+
+c.colors.hints.bg = bg
+c.colors.hints.fg = accent
+c.colors.hints.match.fg = light_fg
+c.hints.border = f"2px solid {accent}"
+
+
+c.colors.messages.error.bg = red
+c.colors.messages.error.border = "transparent"
+c.colors.messages.error.fg = light_fg
+c.colors.messages.info.bg = bg
+c.colors.messages.info.border = "transparent"
+c.colors.messages.info.fg = fg
+c.colors.messages.warning.bg = yellow_bg
+c.colors.messages.warning.border = "transparent"
+c.colors.messages.warning.fg = light_fg
+
+c.colors.prompts.bg = bg
+c.colors.prompts.border = f'2px solid {fg}'
+c.colors.prompts.fg = fg
+c.colors.prompts.selected.bg = bg
+c.colors.prompts.selected.fg = accent
+
+c.colors.webpage.bg = bg
+
