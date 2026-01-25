@@ -16,10 +16,10 @@ declare -A bordercolors
 bordercolors=(
   move     "rgb(4695bd)"
   resize   "rgb(46bd80)"
-  launch   "rgb(944540)"
-  insert   "rgb(2b2b2b)"
+  launch   "rgb(944540)" # DEPRECATED
+  insert   "rgb(2b2b2b)" # DEPRECATED
   cursor   "rgb(00000000)"
-  reset    "rgb(bd4e46)"
+  reset    "rgb(2b2b2b)"
 )
 
 bordercolor=${bordercolors[$submap]}
