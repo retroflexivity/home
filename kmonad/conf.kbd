@@ -29,17 +29,19 @@
 ;; ALIASES
 
 (defalias
-  tsf (tap-hold-next-release 300 t lsft)
-  sct (tap-hold-next-release 300 s lctl)
-  ral (tap-hold-next-release 300 r lalt)
-  ame (tap-hold-next-release 300 a lmet)
-                    
-  lsf (tap-hold-next-release 300 l lsft)
-  uct (tap-hold-next-release 300 u lctl)
-  yal (tap-hold-next-release 300 y lalt)
-  :me (tap-hold-next-release 300 ; lmet)
+  ax  (tap-hold-next-release 300 a lalt)
+  rx  (tap-hold-next-release 300 r lmet)
+  sx  (tap-hold-next-release 300 s lctl)
+  tx  (tap-hold-next-release 300 t lsft)
 
-  xsf (tap-hold-next-release 300 esc lsft)
+  lx  (tap-hold-next-release 300 l lsft)
+  ux  (tap-hold-next-release 300 u lctl)
+  yx  (tap-hold-next-release 300 y lmet)
+  :x  (tap-hold-next-release 300 ; lalt)
+
+  rtx (tap-hold-next-release 300 ret lmet)
+  esx (tap-hold-next-release 300 esc lctl)
+  tbx (tap-hold-next-release 300 tab lsft)
   wct (tap-hold-next-release 300 scrolllock lctl)
                    
   _fn (tap-hold-next-release 300 spc (layer-toggle fn))
@@ -62,8 +64,8 @@
 (deflayer colemak
   esc  back refresh f11 pp ssrq brdn brup mute volumedown volumeup @gam  
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  tab  q    w    f    p    b    j    @lsf @uct @yal @:me [    ]    \
-  esc  @ame @ral @sct @tsf g    m    n    e    i    o    '    ret
+  tab  q    w    f    p    b    j    @lx  @ux  @yx @:x   [    ]    \
+  esc  @ax  @rx  @sx  @tx  g    m    n    e    i    o    '    ret
   home z    x    c    d    v    k    h    ,    .    /   home
   lctl ins            @_fn           @loa comp
 )
@@ -71,9 +73,9 @@
 (deflayer fn
   esc  XX   XX   XX   XX   XX   bldn blup XX   XX   XX   @gam
   XX   f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  del
-  XX   XX   XX   tab  ret  XX   XX   _    _    _    _    XX   XX   XX
-  caps _    _    @wct @xsf XX   lft  down up   rght XX   XX   XX
-  XX   XX   bspc del  XX   XX   home pgdn pgup end  XX   XX
+  XX   XX   XX   tab  ret  XX   XX   lsft lctl lmet lalt XX   XX   XX
+  caps lalt @rtx @esx @tbx XX   lft  down up   rght XX   XX   XX
+  XX   XX   bspc XX   del  XX   home pgdn pgup end  XX   XX
   XX   XX             XX             XX   XX  
 )
 
