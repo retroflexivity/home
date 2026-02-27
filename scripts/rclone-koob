@@ -1,29 +1,10 @@
-#!/usr/bin/zsh
+#!/usr/bin/nu
 
-HISTORY_FILE="$HOME/.koob_ips"
+let dirs = [articles books]
 
-save_addr() {
-    local input="$1"
-
-    # Save the string to the history file if not already present
-    if ! grep -Fxq "$input" "$HISTORY_FILE"; then
-        echo "$input" >> "$HISTORY_FILE"
-    fi
+def main [addr: string] {
+    for d in $dirs {
+        print $"cloning ($d) to ($addr)"
+        rclone sync $d koob:/mnt/onboard/($d) --sftp-host $addr --exclude "*.sdr/**" --exclude ".git/**" --no-update-modtime --no-update-dir-modtime --verbose --update
+    }
 }
-
-if [[ -z "$1" ]]; then
-    echo "no address passed"
-    exit 1
-fi
-
-# Call the function with the input string
-save_addr "$1"
-addr=$1
-
-declare -a dirs=("articles" "books")
-
-for d in "${dirs[@]}"
-do
-    echo cloning "$d" to "$addr"
-    rclone sync $d koob:/mnt/onboard/$d --sftp-host $addr --exclude "*.sdr/**" --exclude ".git/**" --no-update-modtime --verbose
-done
