@@ -9,6 +9,7 @@
 "qutebrowser.py" = "~/.config/qutebrowser/config.py"
 "sioyek" = "~/.config/sioyek"
 "papis" = { target = "~/.config/papis", type = "symbolic" }
+"himalaya" = "~/.config/himalaya"
 "wl-kbptr" = "~/.config/wl-kbptr"
 "rofi/config.rasi" = "~/.config/rofi/config.rasi"
 "rofi/theme.rasi" = "~/.config/rofi/themes/concrete.rasi"
