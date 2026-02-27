@@ -1,17 +1,17 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 function handle-popup {
-    if [[ $1 == "openwindow"*",popup-"* ]]; then
-	echo $1
-        focused=${1##*>}
-        focused=${focused%%,*}
-    elif [[ -n $focused ]] && [[ ${1:0:14} == "activewindowv2" ]] ; then
-	echo $1
-	if [[ ! $1 == *"$focused" ]] ; then
-            hyprctl dispatch closewindow "class:popup.*"
+  if [[ ${1:0:10} == "openwindow" ]] && [[ $1 == "openwindow"*",popup-"* ]]; then
+  	echo $1
+    focused=${1##*>}
+    focused=${focused%%,*}
+  elif [[ -n $focused ]] && [[ ${1:0:14} == "activewindowv2" ]] ; then
+  	echo $1
+  	if [[ ! $1 == *"$focused" ]] ; then
+      hyprctl dispatch closewindow "class:popup.*"
 	    focused=''
-	fi
-    fi
+  	fi
+  fi
 }
 
 focused=''
