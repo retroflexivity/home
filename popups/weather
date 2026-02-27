@@ -1,15 +1,14 @@
-#!/usr/bin/zsh
+#!/usr/bin/bash
 
 if [[ $1 == "s" ]]; then
-	wttr=$(curl -s "wttr.in/?format=%t^%C")
-  if [[ $wttr == *"^"* ]]; then
-  	temp=${wttr%^*}
-	  cond=$(echo ${wttr#*^} | tr '[:upper:]' '[:lower:]' | xargs)
-	  echo "$temp and $cond"
-  else
-    echo "what is this place?"
-    echo $wttr
-  fi
+	cur=$(wego --frontend=json | jq -r '.Current')
+	if [ -n "$cur" ]; then
+		temp=$(echo $cur | jq -r '.TempC')
+		desc=$(echo $cur | jq -r '.Desc')
+		echo "${temp}°C and $desc"
+	else
+		echo "what is this place?"
+	fi
 else
-	kitty --class popup-weather --title weather sh -c 'curl -s "wttr.in/?T" | less'
+	kitty --class popup-weather --title weather sh -c 'wego | less'
 fi
