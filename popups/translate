@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 
-kitty --class popup-trans --title translate sh -c "trans \"$(wl-paste)\" | less -R"
+kitty --class popup-trans --title translate sh -c "wl-paste | trans | less -R"
 
