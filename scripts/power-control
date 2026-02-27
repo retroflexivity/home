@@ -37,23 +37,23 @@ def current [] {
   }
 }
 
-const profiles = {
-  auto: auto
-  ac: performance
-  bat: balanced
-  low-bat: power-saver
-}
+const profiles = [
+  auto
+  performance
+  balanced
+  power-saver
+]
+
+def profiles [] { $profiles }
 
 def get-profile [] {
-  $profiles | get (
-    if (status | str starts-with "Ch") {
-      "ac"
-    } else if (capacity) > $low_threshold {
-      "bat"
-    } else {
-      "low-bat"
-    }
-  )
+  if (status | str starts-with "Ch") {
+    "performance"
+  } else if (capacity) > $low_threshold {
+    "balanced"
+  } else {
+    "power-saver"
+  }
 }
 
 def check-auto [prev: record] {
@@ -120,14 +120,19 @@ def "main start" [] {
   }}
 }
 
-def "main rofi-profile" [] {
-  let res = $profiles | values | to text | rofi -dmenu -p "set power mode"
+def main [profile: string@profiles] {
+  if $profile == "auto" {
+    set-auto true
+  } else {
+    powerprofilesctl set $profile
+  }
+}
+
+def "main rofi" [] {
+  let res = $profiles | to text | rofi -dmenu -p "set power mode"
   if $res == "auto" {
     set-auto true
   } else {
     powerprofilesctl set $res
   }
-}
-
-def main [] {
 }
