@@ -35,8 +35,14 @@ accent = red
 
 # c.auto_save.session = True
 
+c.bindings.key_mappings = {'<Ctrl-[>': '<Escape>', '<Ctrl-6>': '<Ctrl-^>', '<Ctrl-M>': '<Return>', '<Ctrl-J>': '<Return>', '<Ctrl-I>': '<Tab>', '<Shift-Return>': '<Return>', '<Enter>': '<Return>', '<Shift-Enter>': '<Return>', '<Ctrl-Enter>': '<Ctrl-Return>'}
 
-# c.bindings.key_mappings = {'<Ctrl-[>': '<Escape>', '<Ctrl-6>': '<Ctrl-^>', '<Ctrl-M>': '<Return>', '<Ctrl-J>': '<Return>', '<Ctrl-I>': '<Tab>', '<Shift-Return>': '<Return>', '<Enter>': '<Return>', '<Shift-Enter>': '<Return>', '<Ctrl-Enter>': '<Ctrl-Return>'}
+# cyrillic keybindings
+config.unbind('.')
+en_keys = "qwfpbjluy;[]arstgmneio'zxcdvkh,./" + 'QWFPBJLUY:{}ARSTGMNEIO"ZXCDVKH<>?'
+ru_keys = 'йцукенгшщзхъфывапролджэячсмитьбю.' + 'ЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ,'
+c.bindings.key_mappings.update(dict(zip(ru_keys, en_keys)))
+
 
 c.completion.scrollbar.padding = 2
 c.completion.scrollbar.width = 12
@@ -57,12 +63,12 @@ c.downloads.location.prompt = False
 
 c.editor.command = ['kitty', 'helix', '{file}', '+{line}']
 
-c.fileselect.folder.command = ['sh', '-c', 'rofi-finder ~ -o --type="dir" 2>/dev/null']
-c.fileselect.handler = 'external'
-c.fileselect.multiple_files.command = ['sh', '-c', 'rofi-finder ~ -om 2>/dev/null']
-c.fileselect.single_file.command = ['sh', '-c', 'rofi-finder ~ -o 2>/dev/null']
+# c.fileselect.folder.command = ['sh', '-c', 'rofi-finder ~ -o --type="dir" 2>/dev/null']
+# c.fileselect.handler = 'external'
+# c.fileselect.multiple_files.command = ['sh', '-c', 'rofi-finder ~ -om 2>/dev/null']
+# c.fileselect.single_file.command = ['sh', '-c', 'rofi-finder ~ -o 2>/dev/null']
 
-c.hints.chars = 'arstneio'
+c.hints.chars = 'tnseriaodhgmplfuwybj'
 
 c.new_instance_open_target = 'window'
 c.prompt.filebrowser = False
@@ -83,6 +89,7 @@ c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}'}
 c.url.start_pages = 'about:blank'
 
 config.bind(';', 'cmd-set-text :')
+config.unbind(':')
 
 config.bind('d', 'scroll-page 0 0.5')
 config.bind('u', 'scroll-page 0 -0.5')
@@ -109,7 +116,7 @@ config.bind('I', 'forward')
 config.bind('j', 'search-next')
 config.bind('J', 'search-prev')
 
-config.bind('p', 'open -t -- {clipboard}')
+config.bind('P', 'open -t -- {clipboard}')
 
 config.bind('q', 'tab-close')
 
@@ -117,6 +124,7 @@ config.bind('gg', 'scroll-to-perc 0')
 config.bind('gk', 'scroll-to-perc 100')
 
 config.bind('l', 'mode-enter insert')
+config.bind('L', 'mode-enter passthrough')
 
 config.bind('m', 'scroll left')
 config.bind('n', 'scroll down')
@@ -147,11 +155,16 @@ config.bind('k', 'move-to-end-of-word', mode='caret')
 config.bind('gg', 'move-to-start-of-document', mode='caret')
 config.bind('gk', 'move-to-end-of-document', mode='caret')
 
+config.bind('ys', 'yank selection')
+config.bind('p', 'insert-text -- {clipboard} ')
+config.bind('<Ctrl-V>', 'insert-text -- {clipboard} ')
+
+config.bind('gd', 'download-open')
+
 # Bindings for insert mode
 config.bind('<Ctrl-E>', 'edit-text', mode='insert')
 config.bind('<Escape>', 'mode-leave', mode='insert')
 config.bind('<Shift-Escape>', 'fake-key <Escape>', mode='insert')
-config.bind('<Shift-Ins>', 'insert-text -- {primary}', mode='insert')
 
 
 c.colors.completion.category.bg = bg
@@ -198,16 +211,16 @@ c.colors.statusbar.private.fg = bg
 c.colors.downloads.bar.bg = bg
 c.colors.downloads.error.bg = red_bg
 c.colors.downloads.error.fg = light_fg
-c.colors.downloads.start.bg = green_bg
+c.colors.downloads.start.bg = blue_bg
 c.colors.downloads.start.fg = light_fg
-c.colors.downloads.stop.bg = blue_bg
+c.colors.downloads.stop.bg = green_bg
 c.colors.downloads.stop.fg = light_fg
 
 c.colors.hints.bg = bg
 c.colors.hints.fg = accent
 c.colors.hints.match.fg = light_fg
 c.hints.border = f"2px solid {accent}"
-
+c.fonts.hints = "bold 16px default_family"
 
 c.colors.messages.error.bg = red
 c.colors.messages.error.border = "transparent"
