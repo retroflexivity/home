@@ -16,8 +16,8 @@ image/*=org.gnome.gThumb.desktop;
 
 x-scheme-handler/chrome=org.qutebrowser.qutebrowser.desktop;
 x-scheme-handler/http*=org.qutebrowser.qutebrowser.desktop;
-x-scheme-handler/tg=userapp-AyuGram Desktop-ISCB32.desktop;userapp-AyuGram Desktop-XSFR92.desktop;
-x-scheme-handler/tonsite=userapp-AyuGram Desktop-483O72.desktop;userapp-AyuGram Desktop-6YRS92.desktop;
+x-scheme-handler/tg=com.ayugram.desktop.desktop
+x-scheme-handler/tonsite=com.ayugram.desktop.desktop
 
 inode/directory=kitty.desktop
 x-scheme-handler/discord=vesktop.desktop
