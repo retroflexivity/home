@@ -1,0 +1,43 @@
+#command
+n          forw-line
+^N         forw-line
+^E         back-line
+^P         back-line
+e          back-line
+N          forw-line-force
+E          back-line-force
+m          left-scroll
+i          right-scroll
+k          goto-end
+j          repeat-search
+\ej        repeat-search-all
+J          reverse-search
+\eJ        reverse-search-all
+^O^J       osc8-forw-search
+^Oj        osc8-forw-search
+X          examine
+:x         examine
+q          quit
+H          help
+
+о          forw-line
+^О         forw-line
+^Л         back-line
+^К         back-line
+л          back-line
+О          forw-line-force
+Л          back-line-force
+р          left-scroll
+д          right-scroll
+т          goto-end
+н          repeat-search
+\eн        repeat-search-all
+Н          reverse-search
+\eН        reverse-search-all
+^O^Н       osc8-forw-search
+^Oн        osc8-forw-search
+Ч          examine
+:ч         examine
+й          quit
+Ь          help
+

@@ -1,6 +1,7 @@
 [default.files]
 "nvim" = "~/.config/nvim"
 "helix" = "~/.config/helix"
+"lesskey" = "~/.config/lesskey"
 "clipse" = "~/.config/clipse"
 "bottom.toml" = "~/.config/bottom/bottom.toml"
 "dunstrc" = "~/.config/dunst/dunstrc"
@@ -9,6 +10,7 @@
 "qutebrowser.py" = "~/.config/qutebrowser/config.py"
 "sioyek" = "~/.config/sioyek"
 "papis" = { target = "~/.config/papis", type = "symbolic" }
+"notmuch" = "~/.config/notmuch"
 "himalaya" = "~/.config/himalaya"
 "wl-kbptr" = "~/.config/wl-kbptr"
 "rofi/config.rasi" = "~/.config/rofi/config.rasi"
