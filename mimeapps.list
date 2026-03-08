@@ -9,10 +9,11 @@ text/*=helix.desktop;
 application/xhtml+xml=helix.desktop;
 application/x-*script=helix.desktop;
 application/toml=helix.desktop;
+application/vnd.kde.kxmlguirc=helix.desktop;
 
 application/x-extension-*htm*=qutebrowser.desktop;
 
-image/*=org.gnome.gThumb.desktop;
+image/*=kitten-icat.desktop;
 
 x-scheme-handler/chrome=org.qutebrowser.qutebrowser.desktop;
 x-scheme-handler/http*=org.qutebrowser.qutebrowser.desktop;

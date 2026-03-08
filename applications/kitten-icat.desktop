@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Icat
+GenericName=Open images in Kitty
+TryExec=kitten icat
+Exec=kitten icat %F
+Terminal=true
+Type=Application
+Categories=Utility
+StartupNotify=false
+MimeType=image/bmp;image/jpeg;image/gif;image/png;image/tiff;image/x-bmp;image/x-ico;image/x-png;image/x-pcx;image/x-tga;image/xpm;image/svg+xml;image/webp;image/jxl;
