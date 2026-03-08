@@ -9,7 +9,7 @@ elif [[ $1 == "stop" ]]; then
   hyprctl keyword cursor:hide_on_key_press true
   window-mode prev
 elif [[ $1 == "point" ]]; then
-  hyprctl dispatch submap insert && wl-kbptr -o modes=floating && window-mode cursor
+  hyprctl dispatch submap reset && wl-kbptr -o modes=floating && window-mode cursor
 elif [[ $1 == "point-click" ]]; then
   wl-kbptr -o modes=floating,click
 fi
