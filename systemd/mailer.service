@@ -1,0 +1,5 @@
+[Unit]
+Description="push mail to remote"
+
+[Service]
+ExecStart=/home/ark/.local/bin/mailer push

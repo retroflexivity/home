@@ -1,0 +1,10 @@
+[Unit]
+Description="Run mailer.service regularly"
+
+[Timer]
+OnBootSec=20sec
+OnUnitActiveSec=20min
+Unit=mailer.service
+
+[Install]
+WantedBy=multi-user.target
