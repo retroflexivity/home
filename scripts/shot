@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+if [[ $1 == "region" ]]; then
+  mouse-mode start
+  hyprshot -m region
+  echo current submap is $(hyprctl submap)
+  mouse-mode stop
+fi
+
+if [[ $1 == "window" ]]; then
+  hyprshot -m window -m active
+fi
+
+if [[ $1 == "screen" ]]; then
+  hyprshot -m output -m active
+fi

@@ -1,14 +1,27 @@
 #!/usr/bin/env bash
 
-if [[ $1 == "prev" ]] && [[ -f /tmp/prev-submap ]]; then
-  submap=$(< /tmp/prev-submap)
-  if [[ $submap == "default" ]]; then
-    submap="reset"
+prev () {
+  if [[ -f /tmp/prev-submap ]]; then
+    submap=$(< /tmp/prev-submap)
+    if [[ $submap == "default" ]]; then
+      submap="reset"
+    fi
   fi
+}
+
+if [[ $1 == "prev" ]]; then
+  prev
 else
   submap=$1
 fi
 
+# switch to previous submap unless it's the sent submap, else reset
+if [[ $1 == "exit" ]]; then
+  prev
+  if [[ $submap == $2 ]]; then
+    submap="reset"
+  fi
+fi
 
 hyprctl submap | head -1 > /tmp/prev-submap
 
