@@ -1,0 +1,118 @@
+#!/usr/bin/env nu
+
+let mail_dir = "/home/ark/mail"
+
+def smart-output [] {
+    let output = ($in | to text)
+    let size = (term size)
+
+    let wrapped_lines = ($output | lines | each { |line|
+        [1, (($line | str length) / $size.columns | math ceil)] | math max
+    } | math sum)
+
+    if $wrapped_lines > $size.rows {
+        echo $output | less
+    } else {
+        print $output
+    }
+}
+
+# Read a mail
+def --wrapped "main read" [
+  id: int  # Himalaya id of the mail
+  ...args  # Any parameters to pass to himalaya
+] {
+  himalaya message read $id ...$args | smart-output
+}
+
+# Read a mail and remove it from the inbox
+def --wrapped "main pop" [
+  id: int  # Himalaya id of the mail
+  ...args  # Any parameters to pass to himalaya
+] {
+  main read $id ...$args
+  himalaya flag remove inbox $id --quiet
+}
+
+# List mail
+ def --wrapped "main list" [
+  --all               (-a)  # List all mail, not only inbox
+  --ever              (-e)  # List mail from all time, not only past 3 months
+  --search:  string   (-q)  # Search on subject, body, sender, and addressee
+  --subject: string   (-s)  # Search on subject
+  --body:    string   (-b)  # Search on body
+  --from:    string   (-f)  # Search on sender
+  --to:      string   (-t)  # Search on addressee
+  --after:   datetime       # After date
+  --before:  datetime       # Before date
+  --date:    datetime       # At date
+  ...args                   # Tags. Everything after -- is passed to himalaya
+] {
+
+  def search-prompt [q: string] {
+    $"\(subject ($q) or body ($q) or from ($q) or to ($q)\)"
+  }
+
+  let split_args = ($args | split list "--")
+  let rest  = ($split_args | skip | flatten)
+
+  let filters = (
+    ($split_args | first | each { $"flag ($in)" })  # tags
+    | if not $all {append "flag inbox"} else {}
+    | if not $ever {append $"after ((date now) - 90day | format date %F)"} else {}
+    | if ($search | is-not-empty) {append (search-prompt $search)} else {}
+    | let initial
+    # add filters from parameters
+    ; [
+      [subject $subject]
+      [body $body]
+      [from $from]
+      [to $to]
+      [after $after]
+      [before $before]
+      [date $date]
+    ]
+    | reduce --fold $initial {
+      |it, acc|
+      $acc | if ($it.1 | is-not-empty) {append $"($it.0) ($it.1)"} else {}
+    }
+    | where (is-not-empty)
+    | str join " and "
+  )
+  himalaya envelope list ...$rest $filters
+}
+
+# Change tags of a mail
+def --wrapped "main tag" [
+  id: int  # Himalaya id of the mail
+  ...args  # either `add`, `remove`, or `set`, and tag name(s)
+] {
+  himalaya flag ...$args $id
+}
+
+# Move a mail to a tag like a folder, removing all tags and adding `inbox` and the tag
+def "main move" [
+  id: int      # Himalaya id of the mail
+  tag: string  # the tag to move to
+] {
+  main tag $id set inbox $tag
+}
+
+
+# Pull mail with lieer
+def "main pull" [] {
+  cd $mail_dir
+  gmi pull
+  notmuch new
+}
+
+# Push mail with lieer
+def "main push" [] {
+  cd $mail_dir
+  gmi push
+}
+
+
+def main [] {
+  main list personal
+}

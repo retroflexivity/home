@@ -4,6 +4,7 @@ set -x PYTHONWARNINGS ignore
 set -g fish_autocomplete_autoshow 1
 
 set EDITOR helix
+set PAGER less
 
 if status is-interactive
     fzf_configure_bindings --directory=\cf --variables=\e\cv
@@ -47,6 +48,15 @@ if status is-interactive
     abbr -a lxmc "latexmk -c"
 
     abbr -a gs "git show"
+
+    abbr -a m mailer
+    abbr -a ml "mailer list"
+    abbr -a mlp "mailer list personal"
+    abbr -a mlr "mailer list reading"
+    abbr -a mla "mailer list announcements"
+    abbr -a mlu "mailer list unread"
+    abbr -a mr "mailer read"
+    abbr -a mp "mailer pop"
 
     abbr -a pa papis
     abbr -a pal "papis list"

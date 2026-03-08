@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+[[ $1 == "--all" ]] && echo "Applying tags to all mail" || echo "Applying tags to new mail"
+
+[[ $1 != "--all" ]] && new_tag="tag:new AND"
+
+RULES_FILE="${XDG_CONFIG_HOME:-$HOME/.config}/notmuch/default/tag-rules.ini"
+[[ ! -f "$RULES_FILE" ]] && exit 0
+
+while IFS= read -r line; do
+    # skip comments and empty lines
+    [[ "$line" =~ ^[[:space:]]*# ]] && continue
+    [[ -z "${line// }" ]] && continue
+
+    # split on " = "
+    query="${line%% = *}"
+    tags="${line##* = }"
+
+    [[ -z "$query" || -z "$tags" ]] && continue
+
+    notmuch tag $tags -- "$new_tag tag:inbox AND ($query)"
+done < "$RULES_FILE"
+
+# remove the 'new' tag from everything processed
+notmuch tag -new -- tag:new
