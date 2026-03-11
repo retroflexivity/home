@@ -93,7 +93,7 @@
 	"hyprland/submap": {
 		"always-on": true,
 		"default-submap": "main",
-		// "justify": "center",
+		"on-click": "window-mode reset || hyprctl dispatch submap reset"
 	},
 
 	"custom/weather": {
@@ -103,7 +103,6 @@
 		"exec-on-event": "true",
     "signal": 7,
     "max-length": 30,
-		// "justify": "center",
 	},
 
 	"hyprland/workspaces": {
@@ -115,10 +114,11 @@
 
 	"hyprland/window": {
 		"format": "you're at {}",
-    "max-length": 40,
+    "max-length": 60,
 		"rewrite": {
       "(.*?)(( •| -| —|:).*)?": "$1",
       "(.*?) at nvim (.*)": "$1 editing $2",
+      "(.*?) Choose an existing file": "$1 some file",
 			"you're at ": "nothing here"
 		}
 	},
