@@ -6,6 +6,7 @@ scrolloff = 5
 popup-border = "menu"
 continue-comments = false
 jump-label-alphabet = "arstneiodhqwfpgjluyzxcvbkm"
+auto-format = false
 
 [editor.auto-save]
 after-delay.enable = true
