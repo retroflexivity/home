@@ -165,4 +165,4 @@ configuration {
 /*	me-accept-custom: "Control+MouseDPrimary";*/
 }
 
-@theme "/home/ark/.config/rofi/themes/concrete.rasi"
+@theme "/home/ark/.config/rofi/themes/theme.rasi"

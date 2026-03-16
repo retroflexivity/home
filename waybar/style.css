@@ -4,11 +4,11 @@
 }
 
 * {
-  color: #2b2b2b;
+  color: {{fg}};
 }
 
 tooltip {
-  background-color: #f7f7f7;
+  background-color: {{bg}};
 }
 
 label.module {
@@ -29,7 +29,7 @@ label.module {
 #workspaces {
   font-size: 15px;
   min-height: 40px;
-  border: 3px solid #2b2b2b;
+  border: 3px solid {{fg}};
   margin: 6px 6px 6px 6px;
   padding: 0px 7px;
   border-radius: 0.8em;
@@ -76,7 +76,7 @@ label.module {
 #workspaces button.active {
   border-color: #2b2b2b;
   text-decoration: underline;
-  color: #ff0000;
+  color: {{accent}};
 }
 
 #battery.discharging.critical,
@@ -84,5 +84,5 @@ label.module {
 #memory.critical,
 #battery.critical,
 #battery.full {
-  color: #ba0b0b
+  color: {{red}}
 }

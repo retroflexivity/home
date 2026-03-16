@@ -1,15 +1,11 @@
 inherits = "base16_transparent"
 
-"ui.statusline" = "red"
-"ui.background" = "red"
-"ui.background.separator" = "red"
-"ui.popup" = {"fg" = "red", "bg" = "darker-bg"}
-"ui.menu" = {"fg" = "white", "bg" = "darker-bg"}
+"ui.statusline" = "{{accent-name}}"
+"ui.background" = "{{accent-name}}"
+"ui.background.separator" = "{{accent-name}}"
+"ui.popup" = {"fg" = "{{accent-name}}", "bg" = "{{bg}}"}
+"ui.menu" = {"fg" = "white", "bg" = "{{bg-off}}"}
 "ui.help" = "red"
 "ui.window" = "red"
 
-"comment" = { modifiers = ["italic"], fg = "proper-gray" }
-
-[palette]
-proper-gray = "#909090"
-darker-bg = "#f2f2f2"
+"comment" = { modifiers = ["italic"], fg = "{{gray}}" }

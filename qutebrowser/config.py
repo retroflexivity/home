@@ -1,34 +1,10 @@
+from colors import *
+
 # type: ignore
 c = c  # noqa: F821 pylint: disable=E0602,C0103 ruff: disable=E0602,C0103
 config = config  # noqa: F821 pylint: disable=E0602,C0103
 
 config.load_autoconfig(False)
-
-# colors
-bg = "#f7f7f7"
-fg = "#2b2b2b"
-darker_bg = "#f2f2f2"
-light_fg = bg
-
-red = "#bd4e46"
-red_bg = "#944540"
-
-green = "#46bd80"
-green_bg = "#409168"
-
-yellow = "#b3a430"
-yellow_bg = "#9e9336"
-
-blue = "#4695bd"
-blue_bg = "#45748c"
-
-magenta = "#a64eb5"
-magenta_bg = "#814c8a"
-
-cyan = "#46b5bd"
-cyan_bg = "#428085"
-
-accent = red
 
 # c.aliases = {'w': 'session-save', 'q': 'close', 'qa': 'quit', 'wq': 'quit --save', 'wqa': 'quit --save'}
 # c.auto_save.interval = 15000

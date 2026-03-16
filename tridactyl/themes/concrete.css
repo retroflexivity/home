@@ -1,20 +1,20 @@
 :root {
-    --base00: #f7f7f7; /* black */
-    --base08: #e7e7e7;
-    --base01: #bd4e46; /* red */
-    --base09: #944540;
-    --base02: #46bd80; /* green */
-    --base0A: #409168;
-    --base03: #b3a430; /* yellow */
-    --base0B: #9e9336;
-    --base04: #4695bd; /* blue */
-    --base0C: #45748c;
-    --base05: #a64eb5; /* magenta */
-    --base0D: #814c8a;
-    --base06: #46b5bd; /* cyan */
-    --base0E: #428085;
-    --base07: #2b2b2b; /* white */
-    --base0F: #0b0b0b;
+    --base00: {{bg}};
+    --base08: {{bg2}};
+    --base01: {{red}};
+    --base09: {{red2}};
+    --base02: {{green}};
+    --base0A: {{green2}};
+    --base03: {{yellow}};
+    --base0B: {{yellow2}};
+    --base04: {{blue}};
+    --base0C: {{blue2}};
+    --base05: {{magenta}};
+    --base0D: {{magenta2}};
+    --base06: {{cyan}};
+    --base0E: {{cyan2}};
+    --base07: {{fg}};
+    --base0F: {{fg2}};
     --bg: var(--base00);
     --fg: var(--base07);
     --accent: var(--base01);
