@@ -1,5 +1,19 @@
 #!/usr/bin/env bash
 
+restore_shader() {
+  if [ -n "$shader" ]; then
+    hyprshade on "$shader"
+  fi
+}
+
+save_shader() {
+  shader=$(hyprshade current)
+  hyprshade off
+  trap restore_shader EXIT
+}
+
+save_shader
+
 if [[ $1 == "region" ]]; then
   mouse-mode start
   hyprshot -m region
@@ -13,4 +27,8 @@ fi
 
 if [[ $1 == "screen" ]]; then
   hyprshot -m output -m active
+fi
+
+if [[ $1 == "pick" ]]; then
+  hyprpicker -a
 fi
