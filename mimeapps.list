@@ -6,10 +6,7 @@ application/pdf=sioyek.desktop;
 application/vnd.openxmlformats-officedocument.wordprocessingml.document=sioyek.desktop;
 
 text/*=helix.desktop;
-application/xhtml+xml=helix.desktop;
-application/x-*script=helix.desktop;
-application/toml=helix.desktop;
-application/vnd.kde.kxmlguirc=helix.desktop;
+application/*=helix.desktop;
 
 application/x-extension-*htm*=qutebrowser.desktop;
 
